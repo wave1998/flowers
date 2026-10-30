@@ -1,0 +1,77 @@
+<view class="page" wx:if="{{flower}}">
+  <!-- 头图 -->
+  <image
+    class="hero-img"
+    src="{{flower.image}}"
+    mode="aspectFill"
+    bindtap="previewImage"
+    show-menu-by-longpress
+  />
+
+  <view class="content">
+    <!-- 名称 -->
+    <view class="title-row">
+      <view>
+        <view class="name">{{flower.name}}</view>
+        <view class="latin">{{flower.latin || flower.nameEn}}</view>
+      </view>
+      <view class="fav-btn {{faved ? 'faved' : ''}}" bindtap="onToggleFav">
+        <text class="fav-icon">{{faved ? '♥' : '♡'}}</text>
+        <text>{{faved ? '已收藏' : '收藏'}}</text>
+      </view>
+    </view>
+
+    <!-- 花语 -->
+    <view class="meaning-card">
+      <view class="meaning-label">❀ 花语</view>
+      <view class="meaning-text">{{flower.meaning}}</view>
+    </view>
+
+    <!-- 基本信息 -->
+    <view class="info-grid">
+      <view class="info-item" wx:if="{{flower.family}}">
+        <view class="info-label">科属</view>
+        <view class="info-value">{{flower.family}}</view>
+      </view>
+      <view class="info-item" wx:if="{{flower.bloomSeason}}">
+        <view class="info-label">花期</view>
+        <view class="info-value">{{flower.bloomSeason}}</view>
+      </view>
+      <view class="info-item" wx:if="{{flower.origin}}">
+        <view class="info-label">原产地</view>
+        <view class="info-value">{{flower.origin}}</view>
+      </view>
+      <view class="info-item" wx:if="{{flower.colors.length}}">
+        <view class="info-label">花色</view>
+        <view class="info-value">{{flower.colorsText}}</view>
+      </view>
+    </view>
+
+    <!-- 详细介绍 -->
+    <view class="section" wx:if="{{flower.paragraphs.length}}">
+      <view class="section-title">🌿 关于{{flower.name}}</view>
+      <view class="para" wx:for="{{flower.paragraphs}}" wx:key="index">{{item}}</view>
+    </view>
+
+    <!-- 传说 -->
+    <view class="section" wx:if="{{flower.legend}}">
+      <view class="section-title">📖 花间传说</view>
+      <view class="para">{{flower.legend}}</view>
+    </view>
+
+    <!-- 养护 -->
+    <view class="section" wx:if="{{flower.care}}">
+      <view class="section-title">💧 养护小贴士</view>
+      <view class="para">{{flower.care}}</view>
+    </view>
+
+    <!-- 标签 -->
+    <view class="tags" wx:if="{{flower.tags.length}}">
+      <view class="tag" wx:for="{{flower.tags}}" wx:key="*this"># {{item}}</view>
+    </view>
+
+    <view class="safe-bottom"></view>
+  </view>
+</view>
+
+<view class="loading-tip" wx:else>加载中…</view>

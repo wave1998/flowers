@@ -1,0 +1,80 @@
+<view class="page">
+  <!-- 搜索输入 -->
+  <view class="search-head">
+    <view class="search-box">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        focus
+        confirm-type="search"
+        value="{{keyword}}"
+        placeholder="搜索花名、花语或标签"
+        bindinput="onInput"
+        bindconfirm="onSearch"
+      />
+      <text class="clear-icon" wx:if="{{keyword}}" bindtap="onClear">✕</text>
+    </view>
+    <text class="cancel" bindtap="onCancel">取消</text>
+  </view>
+
+  <!-- 搜索历史 -->
+  <view wx:if="{{!searched && history.length}}" class="history">
+    <view class="history-head">
+      <text>搜索历史</text>
+      <text class="history-clear" bindtap="clearHistory">清空</text>
+    </view>
+    <view class="history-tags">
+      <view
+        class="history-tag"
+        wx:for="{{history}}"
+        wx:key="*this"
+        bindtap="onHistoryTap"
+        data-word="{{item}}"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 热门建议 -->
+  <view wx:if="{{!searched}}" class="history">
+    <view class="history-head"><text>试试这些</text></view>
+    <view class="history-tags">
+      <view
+        class="history-tag suggest"
+        wx:for="{{suggests}}"
+        wx:key="*this"
+        bindtap="onHistoryTap"
+        data-word="{{item}}"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 结果 -->
+  <block wx:if="{{searched}}">
+    <view class="result-head" wx:if="{{results.length}}">找到 {{results.length}} 种花</view>
+
+    <view class="result-list">
+      <view
+        class="card result-item"
+        wx:for="{{results}}"
+        wx:key="_id"
+        bindtap="goDetail"
+        data-id="{{item._id}}"
+      >
+        <image class="result-img" src="{{item.image}}" mode="aspectFill" lazy-load />
+        <view class="result-info">
+          <view class="result-name">{{item.name}}</view>
+          <view class="result-en">{{item.nameEn}}</view>
+          <view class="result-meaning ellipsis-2">{{item.meaning}}</view>
+        </view>
+        <text class="result-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="empty" wx:if="{{!loading && !results.length}}">
+      <view class="empty-icon">🍂</view>
+      <view class="empty-text">没有找到「{{keyword}}」相关的花</view>
+      <view class="empty-text">换个关键词试试吧</view>
+    </view>
+    <view class="loading-tip" wx:if="{{loading}}">搜索中…</view>
+  </block>
+</view>

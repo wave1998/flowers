@@ -1,0 +1,130 @@
+.page {
+  padding-bottom: 40rpx;
+}
+
+.hero-img {
+  width: 100%;
+  height: 560rpx;
+  display: block;
+  background: #f0ebe4;
+}
+
+.content {
+  padding: 32rpx 32rpx 0;
+  margin-top: -40rpx;
+  position: relative;
+  background: var(--bg);
+  border-radius: 40rpx 40rpx 0 0;
+}
+
+/* 标题行 */
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.name {
+  font-size: 48rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+.latin {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: var(--text-light);
+  font-style: italic;
+}
+.fav-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 12rpx 28rpx;
+  border-radius: 40rpx;
+  border: 2rpx solid var(--primary);
+  color: var(--primary);
+  font-size: 26rpx;
+  background: #fff;
+}
+.fav-btn.faved {
+  background: var(--primary);
+  color: #fff;
+}
+.fav-icon {
+  font-size: 30rpx;
+}
+
+/* 花语卡片 */
+.meaning-card {
+  margin-top: 32rpx;
+  padding: 32rpx;
+  background: linear-gradient(135deg, var(--primary-light) 0%, #fdf3e7 100%);
+  border-radius: var(--radius);
+}
+.meaning-label {
+  font-size: 24rpx;
+  color: var(--primary);
+  margin-bottom: 12rpx;
+}
+.meaning-text {
+  font-size: 34rpx;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* 信息网格 */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  margin-top: 28rpx;
+}
+.info-item {
+  background: var(--card);
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
+}
+.info-label {
+  font-size: 22rpx;
+  color: var(--text-light);
+}
+.info-value {
+  margin-top: 6rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+/* 内容区块 */
+.section {
+  margin-top: 40rpx;
+}
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+.para {
+  font-size: 28rpx;
+  color: #5d544a;
+  text-align: justify;
+  margin-bottom: 16rpx;
+}
+
+/* 标签 */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 40rpx;
+}
+.tag {
+  padding: 8rpx 24rpx;
+  border-radius: 30rpx;
+  background: #eef3ee;
+  color: var(--accent);
+  font-size: 24rpx;
+}
+
+.safe-bottom {
+  height: env(safe-area-inset-bottom);
+}

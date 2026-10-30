@@ -1,0 +1,88 @@
+<view class="page">
+  <!-- 顶部问候 -->
+  <view class="hero">
+    <view class="hero-title">花语亭</view>
+    <view class="hero-sub">{{today}}</view>
+  </view>
+
+  <!-- 搜索框（点击跳转搜索页） -->
+  <view class="search-bar" bindtap="goSearch">
+    <text class="search-icon">🔍</text>
+    <text class="search-placeholder">搜索花的名字或花语，如「玫瑰」</text>
+  </view>
+
+  <!-- 初始化引导：数据库为空时显示 -->
+  <view class="card setup-card" wx:if="{{isEmpty}}">
+    <view class="setup-title">🌱 欢迎使用花语亭</view>
+    <view class="setup-desc">
+      数据库还没有花卉数据。点击下方按钮，一键导入内置的花卉资料（含花语、介绍与无版权图片），约需 1~2 分钟。
+    </view>
+    <button class="setup-btn" loading="{{initializing}}" disabled="{{initializing}}" bindtap="onInit">
+      {{initializing ? initProgressText : '初始化花卉数据'}}
+    </button>
+    <view class="setup-tip" wx:if="{{initError}}">{{initError}}</view>
+  </view>
+
+  <!-- 今日推荐 -->
+  <block wx:if="{{daily}}">
+    <view class="section-head">
+      <text class="section-title">今日花语</text>
+      <text class="section-sub">每天认识一朵花</text>
+    </view>
+
+    <view class="card daily-card" bindtap="goDetail" data-id="{{daily._id}}">
+      <image
+        class="daily-img"
+        src="{{daily.image}}"
+        mode="aspectFill"
+        lazy-load
+      />
+      <view class="daily-overlay">
+        <view class="daily-name">{{daily.name}}</view>
+        <view class="daily-en">{{daily.nameEn}}</view>
+      </view>
+      <view class="daily-body">
+        <view class="daily-meaning">
+          <text class="meaning-label">花语</text>
+          <text class="meaning-text">{{daily.meaning}}</text>
+        </view>
+        <view class="daily-desc ellipsis-2">{{daily.legend}}</view>
+        <view class="daily-more">
+          <text>查看详情</text>
+          <text class="arrow">›</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 骨架屏 -->
+  <view class="card skeleton" wx:if="{{loading}}">
+    <view class="sk-img"></view>
+    <view class="sk-line w60"></view>
+    <view class="sk-line w90"></view>
+    <view class="sk-line w40"></view>
+  </view>
+
+  <!-- 热门花语（随机几朵） -->
+  <block wx:if="{{hot.length}}">
+    <view class="section-head">
+      <text class="section-title">花间漫步</text>
+      <text class="section-link" catchtap="goList">全部 ›</text>
+    </view>
+    <view class="hot-grid">
+      <view
+        class="card hot-item"
+        wx:for="{{hot}}"
+        wx:key="_id"
+        bindtap="goDetail"
+        data-id="{{item._id}}"
+      >
+        <image class="hot-img" src="{{item.image}}" mode="aspectFill" lazy-load />
+        <view class="hot-name">{{item.name}}</view>
+        <view class="hot-meaning ellipsis">{{item.meaning}}</view>
+      </view>
+    </view>
+  </block>
+
+  <view class="footer">— 一花一世界，一叶一追寻 —</view>
+</view>

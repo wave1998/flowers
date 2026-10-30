@@ -1,0 +1,71 @@
+<view class="page">
+  <!-- 账号信息卡片 -->
+  <view class="card profile">
+    <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image wx:if="{{avatarUrl}}" class="avatar" src="{{avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar avatar-default">🌸</view>
+      <view class="avatar-edit">换头像</view>
+    </button>
+    <view class="profile-info">
+      <input
+        class="nickname"
+        type="nickname"
+        value="{{nickname}}"
+        placeholder="点击设置昵称"
+        bindblur="onNicknameBlur"
+        bindconfirm="onNicknameBlur"
+      />
+      <view class="profile-desc">在花语亭，收藏属于你的花</view>
+    </view>
+  </view>
+
+  <!-- 统计 -->
+  <view class="stats">
+    <view class="stat-item">
+      <view class="stat-num">{{favorites.length}}</view>
+      <view class="stat-label">收藏的花</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-num">{{favMeanings}}</view>
+      <view class="stat-label">种花语</view>
+    </view>
+  </view>
+
+  <!-- 我的收藏 -->
+  <view class="section-head">
+    <text class="section-title">🧺 我的花囊</text>
+  </view>
+
+  <view class="fav-grid" wx:if="{{favorites.length}}">
+    <view
+      class="card fav-item"
+      wx:for="{{favorites}}"
+      wx:key="_id"
+      bindtap="goDetail"
+      data-id="{{item.flowerId}}"
+      bindlongpress="onLongPress"
+      data-name="{{item.name}}"
+      data-favid="{{item._id}}"
+    >
+      <image class="fav-img" src="{{item.image}}" mode="aspectFill" lazy-load />
+      <view class="fav-name">{{item.name}}</view>
+      <view class="fav-meaning ellipsis">{{item.meaning}}</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:elif="{{!loading}}">
+    <view class="empty-icon">🧺</view>
+    <view class="empty-text">花囊还是空的</view>
+    <view class="empty-text">去「花丛」逛逛，点 ♡ 收藏喜欢的花</view>
+    <button class="go-btn" bindtap="goList">去逛逛</button>
+  </view>
+
+  <view class="loading-tip" wx:if="{{loading}}">加载中…</view>
+
+  <!-- 关于 -->
+  <view class="about">
+    <view class="about-title">关于花语亭</view>
+    <view class="about-text">花卉图片与资料来自 Wikimedia Commons 等自由版权来源，仅供学习交流。</view>
+  </view>
+</view>

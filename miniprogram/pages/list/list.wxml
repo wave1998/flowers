@@ -1,0 +1,62 @@
+<view class="page">
+  <view class="head">
+    <view class="head-title">花丛</view>
+    <view class="head-sub" wx:if="{{total}}">共收录 {{total}} 种花，点开看看它们的心事</view>
+  </view>
+
+  <!-- 双列瀑布流 -->
+  <view class="waterfall" wx:if="{{!isEmpty}}">
+    <view class="col">
+      <view
+        class="card f-item"
+        wx:for="{{leftCol}}"
+        wx:key="_id"
+        bindtap="goDetail"
+        data-id="{{item._id}}"
+      >
+        <image
+          class="f-img"
+          style="height: {{item.boxHeight}}rpx"
+          src="{{item.image}}"
+          mode="aspectFill"
+          lazy-load
+        />
+        <view class="f-body">
+          <view class="f-name">{{item.name}}</view>
+          <view class="f-meaning ellipsis">{{item.meaning}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="col">
+      <view
+        class="card f-item"
+        wx:for="{{rightCol}}"
+        wx:key="_id"
+        bindtap="goDetail"
+        data-id="{{item._id}}"
+      >
+        <image
+          class="f-img"
+          style="height: {{item.boxHeight}}rpx"
+          src="{{item.image}}"
+          mode="aspectFill"
+          lazy-load
+        />
+        <view class="f-body">
+          <view class="f-name">{{item.name}}</view>
+          <view class="f-meaning ellipsis">{{item.meaning}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{isEmpty}}">
+    <view class="empty-icon">🌷</view>
+    <view class="empty-text">还没有花卉数据</view>
+    <view class="empty-text">请到「首页」点击按钮初始化数据</view>
+  </view>
+
+  <view class="loading-tip" wx:if="{{loading}}">加载中…</view>
+  <view class="loading-tip" wx:elif="{{noMore && flowers.length}}">— 到底啦，去首页看看今日花语吧 —</view>
+</view>
