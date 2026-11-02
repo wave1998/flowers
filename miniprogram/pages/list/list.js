@@ -12,7 +12,8 @@ Page({
     total: 0,
     loading: false,
     noMore: false,
-    isEmpty: false
+    isEmpty: false,
+    showBackTop: false
   },
 
   onLoad() {
@@ -24,6 +25,19 @@ Page({
 
   onReachBottom() {
     if (!this.data.noMore && !this.data.loading) this.loadMore()
+  },
+
+  onPageScroll({ scrollTop }) {
+    const showBackTop = scrollTop > 320
+    if (showBackTop !== this.data.showBackTop) this.setData({ showBackTop })
+  },
+
+  backToTop() {
+    wx.pageScrollTo({ scrollTop: 0, duration: 300 })
+  },
+
+  goSearch() {
+    wx.navigateTo({ url: '/pages/search/search' })
   },
 
   onPullDownRefresh() {

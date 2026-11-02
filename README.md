@@ -2,14 +2,14 @@
 
 一个基于微信云开发的花卉图鉴小程序：**每日花语推荐 + 搜索 + 瀑布流列表 + 花卉详情 + 我的收藏**。
 
-花卉资料与图片来自 **Wikimedia Commons**（自由版权/公有领域图库），通过 `initDatabase` 云函数一键导入云数据库和云存储，无需自己准备素材。
+内置 26 种花卉文字资料和来自 **iNaturalist** 的自由许可配图，通过 `initDatabase` 云函数导入云数据库和云存储。图片在部署前准备，云函数运行时无需检索或下载外部图片。
 
 ## 功能结构
 
 | 模块 | 说明 |
 | --- | --- |
-| 首页 `pages/index` | 每日推荐一朵花（按日期轮换）、搜索入口、花间漫步推荐位 |
-| 花丛 `pages/list` | 双列瀑布流，按图片宽高比智能分列，触底分页加载 |
+| 首页 `pages/index` | 每日推荐一朵花（按日期轮换）、吸顶搜索入口、花间漫步推荐位 |
+| 花丛 `pages/list` | 双列瀑布流、顶部搜索入口（不吸顶）、触底分页加载、悬浮返回顶部 |
 | 我的 `pages/mine` | 微信头像昵称设置、收藏统计、我的收藏（长按可取消） |
 | 详情 `pages/detail` | 花语、科属/花期/原产地、详细介绍、传说、养护贴士、收藏/分享 |
 | 搜索 `pages/search` | 花名/英文名/别名/花语/标签模糊搜索，防抖输入，搜索历史 |
@@ -27,7 +27,8 @@ flowers/
 ├── cloudfunctions/
 │   └── initDatabase/            # 数据初始化云函数（含 26 种花的种子数据 seed.json）
 └── scripts/
-    └── generate_icons.py        # 生成 tabBar 图标与默认头像
+    ├── generate_icons.py        # 生成 tabBar 图标与默认头像
+    └── prepare_images.mjs       # 部署前准备配图、作者与许可信息
 ```
 
 ## 快速开始
@@ -37,31 +38,41 @@ flowers/
 1. 打开**微信开发者工具** → 导入项目 → 选择本目录
 2. 将 `project.config.json` 中的 `appid` 替换为你自己的小程序 AppID（需已开通云开发）
 
-> 开箱即用：底部导航默认为纯文字样式，无需任何图片资源即可编译运行。
-> 如需带图标的 tabBar，运行 `python3 scripts/generate_icons.py` 生成 PNG 图标后，
-> 在 `miniprogram/app.json` 的 tabBar 每一项中补回 `"iconPath": "images/tab-xxx.png"` 和 `"selectedIconPath": "images/tab-xxx-active.png"`（脚本生成的文件名与之一一对应）。
+> 底部导航已内置首页、花丛、我的三个图标，分别提供灰色默认态和粉色选中态。
+> 如需重新生成图标，运行 `python3 scripts/generate_icons.py`，无需额外安装依赖。
 
 ### 2. 开通云开发并配置环境 ID
 
-1. 开发者工具顶部点击「云开发」，开通环境（免费额度足够使用）
-2. 复制环境 ID，填入 `miniprogram/app.js` 顶部的 `ENV_ID` 常量（只有一个环境时可留空，会自动使用默认环境）
+1. 开发者工具顶部点击「云开发」，开通环境
+2. 复制**环境 ID**，填入 `miniprogram/app.js` 顶部的 `ENV_ID` 常量，再重新编译。请复制控制台环境信息中的「环境 ID」一行，不是纯数字的腾讯云主账号 ID、环境名称或以 `wx` 开头的小程序 AppID。只有已设置可用默认环境时才可以留空。
+3. 右键 `cloudfunctions`，在「当前环境」中选择同一个环境。如果列表为空，请先开通云开发并创建环境，再刷新开发者工具。
 
 ### 3. 部署云函数
 
 在开发者工具中，右键 `cloudfunctions/initDatabase` → **「上传并部署：云端安装依赖」**。
 
-建议顺手在云开发控制台 → 云函数 → initDatabase → 配置中，把**超时时间调到 60 秒**（函数需要下载图片，默认 20 秒可能不够）。
+当前实现把集合准备、每朵花的高清图和缩略图上传分成独立调用，配图已打包在 `initDatabase/images/`，用于适配执行超时固定为 3 秒的体验环境。无需为了图片检索升级套餐。修改函数代码或配图后，需重新部署。
 
 ### 4. 初始化数据
 
 编译运行小程序，首页会显示「初始化花卉数据」按钮，点击即可：
 
 - 云函数自动创建 `flowers`、`favorites` 两个集合
-- 按种子数据逐批（每批 5 种）从 Wikimedia Commons 检索自由版权图片
+- 按种子数据逐批导入，同一朵花的高清图和缩略图分两次调用上传
 - 图片上传到云存储 `flowers/` 目录，资料写入 `flowers` 集合
-- 按钮上会显示进度，全部完成约需 1~3 分钟
+- 按钮上显示导入进度，实际耗时取决于云函数调用与云存储上传速度
 
-> 导入是幂等的，中断后再次点击会跳过已导入的花继续。个别花若没搜到合适图片会记录失败并可重试。
+> 中断后再次点击会跳过已导入的花继续。每次调用通过游标推进，个别花的图片失败不会阻塞后续花卉，失败项会保留在首页，点击重试即可重新处理。修改此流程后需重新部署云函数。
+
+### 常见加载问题
+
+- `-501000` 且提示 `Environment not found` / `no default environment`：没有可用默认环境，或填写的环境 ID 不正确。先开通环境，再填写 `ENV_ID`，不能通过点击初始化解决。
+- `FUNCTION_NOT_FOUND`：将 `initDatabase` 部署到 `ENV_ID` 对应的环境。
+- 集合不存在：云环境已经连接成功，但尚未初始化，点击首页的初始化按钮。
+- 权限不足：按下方表格配置集合权限。
+- `FUNCTIONS_TIME_LIMIT_EXCEEDED`：先确认已部署包含 `images/` 的最新版本，再重试；已导入的数据会跳过，不会重复创建。
+
+首页会分别显示环境、权限、连接错误和空数据库状态，失败后可点击「重新加载」。
 
 ### 5. 设置数据库权限（重要）
 
@@ -92,8 +103,9 @@ flowers/
   description: '……\n……',     // 详细介绍（\n 分段）
   care: '……',                // 养护贴士
   image: 'cloud://…',        // 云存储 fileID
+  thumbnail: 'cloud://…',    // 最长边 400px 的独立缩略图，列表使用
   imgRatio: 1.0,             // 图片高宽比（瀑布流布局用）
-  imageMeta: { source, title, license, author }  // 图片版权信息
+  imageMeta: { source, title, license, author, sourceUrl, modification }  // 图片版权信息
 }
 ```
 
@@ -103,10 +115,38 @@ flowers/
 
 想增加/修改花卉，直接编辑 `cloudfunctions/initDatabase/seed.json`，重新部署云函数后再次点击初始化即可（已存在的按名字跳过；如需重新导入某朵花，先在数据库中删除该记录）。
 
-每条数据的 `imageQuery` 是 Wikimedia Commons 的搜索词，可改成更精确的文件描述以锁定特定图片。
+修改花种后，运行 `node scripts/prepare_images.mjs` 准备新增花种的配图。脚本根据 `latin` 学名从 iNaturalist 检索自由许可照片并写入 `images/manifest.json`，再部署云函数。指定花名可重新准备对应配图，例如 `node scripts/prepare_images.mjs 玫瑰`。应检查下载结果与花种是否一致；少数名称歧义需在脚本中指定精确的分类 ID。旧的 `imageQuery` 字段仅为历史数据保留，不再用于运行时图片搜索。
+
+下载配图后，使用安装了 Pillow 的 Python 运行 `python3 scripts/prepare_image_variants.py`，准备来源网站的 large 高清图和最长边 400px 的缩略图，再部署 `initDatabase`。高清图写入 `image`，缩略图写入 `thumbnail`；已有花卉升级时保留文档 ID 和创建时间。列表、搜索结果和首页的小卡片优先加载缩略图，详情页与预览使用高清图。旧收藏没有缩略图时会回退到原图片。
 
 ## 版权说明
 
-图片由云函数从 Wikimedia Commons 实时检索，仅选取 **公有领域 / CC0 / CC BY / CC BY-SA** 许可的图片，作者与许可信息保存在每条记录的 `imageMeta` 字段中，可在应用内或后台展示以完成署名要求（CC BY 许可需要署名）。
+当前配图从 iNaturalist 的公开照片中选取，仅使用 **CC0 / CC BY / CC BY-SA** 许可。原作者署名、许可、图片来源页和尺寸说明随图片打包在 `images/manifest.json`，导入后写入每条花卉记录的 `imageMeta`，详情页展示署名并支持复制来源链接。复用配图时需保留对应许可与署名；CC BY-SA 图片继续按相同许可提供。
 
 花卉文字资料（花语、介绍、传说、养护）为原创整理。
+
+## 本地验证
+
+无需安装依赖，使用 Node.js 运行 `node --test tests/*.test.js`，覆盖环境错误、首页空数据与失败状态、搜索和分批初始化流程。云环境连接、云函数部署和图片下载仍需在微信开发者工具中验证。
+
+## 账号与加载体验（2026-11-02）
+
+- 新增 `pages/account/account` 账号模块：主动登录、选择头像、填写昵称、授权绑定手机号、退出登录；“我的”头像/昵称及资料入口均跳转此页。游客点收藏先登录，取消不写收藏，登录成功恢复一次收藏。
+- `userAccount` 云函数从微信云上下文获取身份，不接受客户端传入的用户 ID；昵称通过 `security.msgSecCheck` 审核，手机号仅接受微信 `getPhoneNumber` 返回的 code，在服务端换取号码。完整号码不返回前端。`userProfiles` 应设置为**仅管理端可读写**；客户端统一经过云函数访问。头像云存储目录使用用户身份哈希区分，存储权限保持创建者可写。
+- 微信后台需要为实际使用的头像选择、昵称填写及手机号能力完成隐私声明与能力配置。手机号能力是否开放取决于小程序后台的主体/认证/接口资格；未开放时会明确提示，不影响浏览、登录和收藏。真机需要验证头像与手机号系统授权弹窗。
+- 公开资料随小程序包附带，列表、搜索、详情文字离线可用。详情先显示本地缩略图，再淡入高清图；只在后台刷新当前花卉的云图片，缓存 10 分钟并合并并发请求。收藏查询单独运行；游客不查询收藏。
+- 详情有骨架屏、花朵动画、高清图失败时的缩略图回退；列表返回顶部按钮为半透明圆形花朵，读取数据时旋转。
+
+### 资料范围与维护
+
+当前目录包含 **309 条花语资料**（含不同花色/园艺类型，并非声称 309 个不同物种）。其中 26 条配有署名、许可和来源可追溯的 iNaturalist 照片；其余明确显示通用花卉插画，不借用其他物种照片。
+
+新增内容区分编辑意象解读与历史花语译文，历史译文来源为 Kate Greenaway 的 [Language of Flowers (1884)](https://www.gutenberg.org/ebooks/31591)。花语是文化表达，存在时代、地域和语境差异。编辑解读不冒充统一传统花语。
+
+资料源：`cloudfunctions/initDatabase/seed.json`（原有 26 条详细资料）与 `data/flower-meanings.tsv`（扩展目录）。运行 `python3 scripts/build_catalog.py` 重新生成导入数据与 `miniprogram/data/flowers.js`。微信逻辑层使用 JS 模块而非直接 require JSON。缩略图最长边 400 像素，高清图独立使用；当前整个小程序源目录约 1.1 MB。
+
+部署 `cloudfunctions/userAccount` 和新版 `cloudfunctions/initDatabase` 时选择“云端安装依赖”。`initDatabase` 文字条目不要求配图，已有照片分高清/缩略图两次调用，保留文档 ID 和收藏关联。公开目录无需等待云端导入即可浏览；导入函数用于同步云端镜像。
+
+验证：`node --test tests/cloud.test.js`。覆盖离线目录完整性、分页/搜索、详情先显示、登录/取消/恢复收藏、身份隔离、昵称审核与手机号授权码校验等。
+
+头像昵称能力参考：[微信小程序官方头像昵称组件说明](https://github.com/wechat-miniprogram/mp-user-avatar/blob/master/README.md)。

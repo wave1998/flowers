@@ -46,9 +46,11 @@ Page({
   },
 
   async doSearch(kw) {
+    const requestId = this._searchId = (this._searchId || 0) + 1
     this.setData({ loading: true, searched: true })
     try {
-      const results = await api.searchFlowers(kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+      const results = await api.searchFlowers(kw)
+      if (requestId !== this._searchId || kw !== this.data.keyword.trim()) return
       this.setData({ results, loading: false })
       this.saveHistory(kw)
     } catch (err) {
@@ -75,7 +77,8 @@ Page({
   },
 
   onClear() {
-    this.setData({ keyword: '', searched: false, results: [] })
+    this._searchId = (this._searchId || 0) + 1
+    this.setData({ keyword: '', searched: false, results: [], loading: false })
   },
 
   onCancel() {

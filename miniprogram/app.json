@@ -1,39 +1,47 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/list/list",
-        "pages/mine/mine",
-        "pages/detail/detail",
-        "pages/search/search"
-    ],
-    "window": {
-        "navigationBarBackgroundColor": "#faf6f0",
-        "navigationBarTitleText": "花语亭",
-        "navigationBarTextStyle": "black",
-        "backgroundColor": "#faf6f0",
-        "backgroundTextStyle": "light"
-    },
-    "tabBar": {
-        "color": "#b3a99f",
-        "selectedColor": "#d4697a",
-        "backgroundColor": "#ffffff",
-        "borderStyle": "white",
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "text": "首页"
-            },
-            {
-                "pagePath": "pages/list/list",
-                "text": "花丛"
-            },
-            {
-                "pagePath": "pages/mine/mine",
-                "text": "我的"
-            }
-        ]
-    },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json",
-    "lazyCodeLoading": "requiredComponents"
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/mine/mine",
+    "pages/detail/detail",
+    "pages/search/search",
+    "pages/account/account",
+    "pages/privacy/privacy"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#faf6f0",
+    "navigationBarTitleText": "花语亭",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#faf6f0",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#b3a99f",
+    "selectedColor": "#d4697a",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "花丛",
+        "iconPath": "images/tab-list.png",
+        "selectedIconPath": "images/tab-list-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tab-mine.png",
+        "selectedIconPath": "images/tab-mine-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

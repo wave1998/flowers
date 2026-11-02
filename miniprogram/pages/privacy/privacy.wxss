@@ -1,0 +1,1 @@
+.privacy{padding:40rpx 36rpx;font-size:28rpx;line-height:1.9;color:#65594e}.privacy view{margin-bottom:30rpx}.privacy .title{font-size:38rpx;font-weight:700;color:var(--text)}.privacy .date{font-size:24rpx;color:var(--text-light)}

@@ -1,1 +1,1 @@
-{"name": "initDatabase", "version": "1.0.0", "description": "花语亭数据库初始化云函数：导入花卉资料与 Wikimedia Commons 自由版权图片", "main": "index.js", "dependencies": {"wx-server-sdk": "~2.6.3", "axios": "^1.7.0"}}
+{"name": "initDatabase", "version": "1.1.0", "description": "花语亭数据库初始化：分批导入花卉资料与预打包的自由许可配图", "main": "index.js", "dependencies": {"wx-server-sdk": "~2.6.3"}}

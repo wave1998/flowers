@@ -22,6 +22,28 @@
   align-items: flex-start;
   gap: 16rpx;
 }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 28rpx;
+  margin-bottom: 28rpx;
+  background: var(--card);
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 20rpx rgba(74, 66, 56, 0.05);
+}
+.search-icon {
+  font-size: 28rpx;
+  margin-right: 16rpx;
+}
+.search-placeholder {
+  font-size: 26rpx;
+  color: var(--text-light);
+}
+.back-top{position:fixed;right:28rpx;bottom:calc(32rpx + env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;justify-content:center;width:100rpx;height:100rpx;min-width:0;max-width:100rpx;box-sizing:border-box;margin:0;padding:0;border-radius:50%;background:rgba(255,250,246,.76);backdrop-filter:blur(12px);box-shadow:0 6rpx 28rpx rgba(110,72,78,.16);border:1rpx solid rgba(255,255,255,.9)}
+.back-top::after{border:0}.back-top-flower{width:76rpx;height:76rpx}.back-top-arrow{position:absolute;top:33rpx;left:41rpx;color:#835942;font-size:28rpx;font-weight:600;line-height:1}.is-spinning,.flower-loading image{animation:flower-turn 2.4s linear infinite}.flower-loading{display:flex;justify-content:center;align-items:center;gap:12rpx}.flower-loading image{width:40rpx;height:40rpx}@keyframes flower-turn{to{transform:rotate(360deg)}}
+.illustration-label{padding:6rpx 18rpx;font-size:19rpx;color:#a18d80;background:#f4ece5}
 .col {
   flex: 1;
   min-width: 0;

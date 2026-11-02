@@ -60,7 +60,7 @@
         bindtap="goDetail"
         data-id="{{item._id}}"
       >
-        <image class="result-img" src="{{item.image}}" mode="aspectFill" lazy-load />
+        <image class="result-img" src="{{item.thumbnail || item.image}}" mode="aspectFill" lazy-load />
         <view class="result-info">
           <view class="result-name">{{item.name}}</view>
           <view class="result-en">{{item.nameEn}}</view>

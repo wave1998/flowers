@@ -1,0 +1,24 @@
+<view class="account-page">
+  <view class="account-intro">
+    <image class="account-flower" src="/images/flower-loading.png" />
+    <view class="account-title">{{user ? '个人资料' : '留住喜欢的花'}}</view>
+    <view class="account-sub">{{user ? '把温柔写进你的名字里' : '登录后，将喜欢的花收入自己的花囊'}}</view>
+  </view>
+  <view class="card account-card" wx:if="{{!user}}">
+    <view class="login-note">使用当前微信身份登录。头像、昵称和手机号均可稍后按需设置。</view>
+    <checkbox-group bindchange="onConsent"><label class="consent"><checkbox value="agree" checked="{{consent}}" color="#d4697a" /><text>我已阅读并同意</text><text class="link" catchtap="openPrivacy">《隐私说明》</text></label></checkbox-group>
+    <button class="primary" bindtap="onLogin" loading="{{busy}}" disabled="{{busy}}">微信身份登录</button>
+  </view>
+  <view class="card account-card" wx:else>
+    <button class="avatar-picker" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar" disabled="{{busy}}" aria-label="选择头像">
+      <image src="{{avatarUrl || '/images/default-avatar.png'}}" class="avatar" mode="aspectFill" />
+      <text>选择头像 ›</text>
+    </button>
+    <view class="field"><text>昵称</text><input type="nickname" value="{{nickname}}" bindinput="onNickname" bindblur="onNickname" focus="{{focusNickname}}" maxlength="24" placeholder="填写昵称" /></view>
+    <view class="phone-field"><view><view>手机号</view><view class="muted">{{user.phoneBound ? user.phoneMasked : '选填，不影响浏览和收藏'}}</view></view><button class="phone-btn" open-type="getPhoneNumber" bindgetphonenumber="onPhone" disabled="{{busy}}">{{user.phoneBound ? '更换绑定' : '授权绑定'}}</button></view>
+    <button class="primary" bindtap="onSave" loading="{{busy}}" disabled="{{busy}}">保存资料</button>
+    <view class="muted tip">头像与昵称经微信审核后使用。手机号只用于账号资料，由你主动授权获取。</view>
+  </view>
+  <view class="error" wx:if="{{error}}" role="alert">{{error}}</view>
+  <view class="account-footer"><text class="link" bindtap="openPrivacy">隐私说明</text><text wx:if="{{user}}" class="logout" bindtap="onLogout">退出登录</text></view>
+</view>

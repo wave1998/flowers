@@ -19,6 +19,14 @@
 }
 
 /* 搜索框 */
+.search-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  margin: 0 -32rpx;
+  padding: 16rpx 32rpx;
+  background: var(--bg);
+}
 .search-bar {
   display: flex;
   align-items: center;
@@ -69,6 +77,14 @@
   margin-top: 20rpx;
   font-size: 24rpx;
   color: var(--primary);
+  word-break: break-all;
+}
+.setup-detail {
+  margin: -12rpx 0 24rpx;
+  font-size: 22rpx;
+  color: var(--text-light);
+  text-align: left;
+  word-break: break-all;
 }
 
 /* 区块标题 */

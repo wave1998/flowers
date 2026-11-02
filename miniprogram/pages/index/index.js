@@ -1,5 +1,6 @@
 const api = require('../../utils/cloud')
 const { formatDateCN, todayKey } = require('../../utils/util')
+const { describeCloudError } = require('../../utils/cloud-error')
 
 Page({
   data: {
@@ -8,6 +9,7 @@ Page({
     hot: [],
     loading: true,
     isEmpty: false,
+    loadError: null,
     initializing: false,
     initError: '',
     initProgressText: ''
@@ -29,7 +31,7 @@ Page({
   },
 
   async loadData() {
-    this.setData({ loading: true, initError: '' })
+    this.setData({ loading: true, loadError: null, isEmpty: false })
     try {
       const daily = await api.getDailyFlower()
       if (!daily) {
@@ -41,7 +43,14 @@ Page({
       this.setData({ daily, hot, isEmpty: false, loading: false })
     } catch (err) {
       console.error('加载首页数据失败', err)
-      this.setData({ loading: false, isEmpty: true, initError: '加载失败，请检查云开发环境是否已开通、数据是否已初始化' })
+      const error = describeCloudError(err)
+      this.setData({
+        loading: false,
+        isEmpty: !!error.needsInitialization,
+        loadError: error.needsInitialization ? null : error,
+        daily: null,
+        hot: []
+      })
     }
   },
 
@@ -59,6 +68,7 @@ Page({
   },
 
   async onInit() {
+    if (this.data.initializing) return
     this.setData({ initializing: true, initError: '', initProgressText: '正在导入花卉数据…' })
     try {
       const result = await api.initDatabase((imported, remaining) => {
@@ -69,22 +79,30 @@ Page({
       if (result && result.success) {
         const failed = result.failures && result.failures.length
         wx.showToast({
-          title: failed ? `导入 ${result.imported} 种，${failed} 种失败` : `成功导入 ${result.imported} 种花`,
+          title: failed ? `导入 ${result.imported} 种，${failed} 种失败` : (result.imported ? `成功导入 ${result.imported} 种花` : '花卉数据已就绪'),
           icon: failed ? 'none' : 'success'
         })
         this._loadedDay = null
         await this.loadData()
+        if (failed) {
+          this.setData({ initError: `以下花卉未导入，可重试：${result.failures.join('；')}` })
+        }
       } else {
         this.setData({ initError: (result && result.message) || '初始化失败，请查看云函数日志' })
       }
     } catch (err) {
       console.error(err)
+      const error = describeCloudError(err)
       this.setData({
-        initError: '云函数调用失败：请先在 cloudfunctions/initDatabase 上右键「上传并部署」，并确认已开通云开发'
+        initError: [error.title, error.message, error.detail].filter(Boolean).join('：')
       })
     } finally {
       this.setData({ initializing: false })
     }
+  },
+
+  onRetry() {
+    if (!this.data.loading) return this.loadData()
   },
 
   goSearch() {

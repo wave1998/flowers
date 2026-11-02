@@ -1,34 +1,52 @@
 {
-    "miniprogramRoot": "miniprogram/",
-    "cloudfunctionRoot": "cloudfunctions/",
-    "compileType": "miniprogram",
-    "appid": "wx2034c20044a76bd3",
-    "projectname": "huayuting",
-    "libVersion": "3.4.10",
-    "setting": {
-        "es6": true,
-        "enhance": true,
-        "postcss": true,
-        "minified": true,
-        "urlCheck": false,
-        "coverView": true,
-        "lazyloadPlaceholderEnable": false,
-        "preloadBackgroundData": false,
-        "autoAudits": false,
-        "checkInvalidKey": true,
-        "packNpmManually": false,
-        "packNpmRelationList": [],
-        "ignoreUploadUnusedFiles": true,
-        "compileHotReLoad": false,
-        "useApiHook": true,
-        "useApiHostProcess": true,
-        "minifyWXSS": true,
-        "showShadowRootInWxmlPanel": true,
-        "ignoreDevUnusedFiles": false
-    },
-    "condition": {},
-    "editorSetting": {
-        "tabIndent": "insertSpaces",
-        "tabSize": 2
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "compileType": "miniprogram",
+  "appid": "wx2034c20044a76bd3",
+  "projectname": "huayuting",
+  "libVersion": "3.4.10",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": false,
+    "coverView": true,
+    "lazyloadPlaceholderEnable": false,
+    "preloadBackgroundData": false,
+    "autoAudits": false,
+    "checkInvalidKey": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "ignoreUploadUnusedFiles": true,
+    "compileHotReLoad": false,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "minifyWXSS": true,
+    "showShadowRootInWxmlPanel": true,
+    "ignoreDevUnusedFiles": false,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
     }
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  }
 }

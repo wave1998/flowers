@@ -1,7 +1,12 @@
 <view class="page">
   <view class="head">
     <view class="head-title">花丛</view>
-    <view class="head-sub" wx:if="{{total}}">共收录 {{total}} 种花，点开看看它们的心事</view>
+    <view class="head-sub" wx:if="{{total}}">共收录 {{total}} 条花语资料，点开看看它们的心事</view>
+  </view>
+
+  <view class="search-bar" bindtap="goSearch" role="button" aria-label="搜索花卉">
+    <text class="search-icon">🔍</text>
+    <text class="search-placeholder">搜索花名、花语或标签</text>
   </view>
 
   <!-- 双列瀑布流 -->
@@ -17,10 +22,11 @@
         <image
           class="f-img"
           style="height: {{item.boxHeight}}rpx"
-          src="{{item.image}}"
+          src="{{item.thumbnail || item.image}}"
           mode="aspectFill"
           lazy-load
         />
+        <view wx:if="{{item.imagePlaceholder}}" class="illustration-label">花卉插画</view>
         <view class="f-body">
           <view class="f-name">{{item.name}}</view>
           <view class="f-meaning ellipsis">{{item.meaning}}</view>
@@ -38,10 +44,11 @@
         <image
           class="f-img"
           style="height: {{item.boxHeight}}rpx"
-          src="{{item.image}}"
+          src="{{item.thumbnail || item.image}}"
           mode="aspectFill"
           lazy-load
         />
+        <view wx:if="{{item.imagePlaceholder}}" class="illustration-label">花卉插画</view>
         <view class="f-body">
           <view class="f-name">{{item.name}}</view>
           <view class="f-meaning ellipsis">{{item.meaning}}</view>
@@ -57,6 +64,11 @@
     <view class="empty-text">请到「首页」点击按钮初始化数据</view>
   </view>
 
-  <view class="loading-tip" wx:if="{{loading}}">加载中…</view>
+<view class="loading-tip flower-loading" wx:if="{{loading}}"><image src="/images/flower-loading.png" />花语正在绽放…</view>
   <view class="loading-tip" wx:elif="{{noMore && flowers.length}}">— 到底啦，去首页看看今日花语吧 —</view>
 </view>
+
+<button class="back-top" wx:if="{{showBackTop}}" bindtap="backToTop" aria-label="返回顶部">
+  <image class="back-top-flower {{loading ? 'is-spinning' : ''}}" src="/images/flower-loading.png" aria-hidden="true" />
+  <text class="back-top-arrow">↑</text>
+</button>

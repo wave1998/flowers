@@ -1,12 +1,11 @@
 <view class="page" wx:if="{{flower}}">
-  <!-- 头图 -->
-  <image
-    class="hero-img"
-    src="{{flower.image}}"
-    mode="aspectFill"
-    bindtap="previewImage"
-    show-menu-by-longpress
-  />
+  <view class="hero">
+    <image class="hero-img hero-preview" src="{{flower.thumbnail || '/images/flower-placeholder.png'}}" mode="aspectFill" />
+    <image wx:if="{{!flower.imagePlaceholder && !imageFailed}}" class="hero-img hero-hd {{imageLoaded ? 'is-loaded' : ''}}" src="{{flower.image}}" mode="aspectFill" bindload="onImageLoad" binderror="onImageError" bindtap="previewImage" show-menu-by-longpress />
+    <view class="hero-status" wx:if="{{flower.imagePlaceholder}}">花卉插画 · 实拍待补充</view>
+    <view class="hero-status" wx:elif="{{imageFailed}}" bindtap="retryImage">已显示缩略图 · 点击重试高清图</view>
+    <view class="hero-status" wx:elif="{{!imageLoaded}}"><image class="petal-spin" src="/images/flower-loading.png" /> 高清图正在绽放</view>
+  </view>
 
   <view class="content">
     <!-- 名称 -->
@@ -15,9 +14,11 @@
         <view class="name">{{flower.name}}</view>
         <view class="latin">{{flower.latin || flower.nameEn}}</view>
       </view>
-      <view class="fav-btn {{faved ? 'faved' : ''}}" bindtap="onToggleFav">
-        <text class="fav-icon">{{faved ? '♥' : '♡'}}</text>
-        <text>{{faved ? '已收藏' : '收藏'}}</text>
+      <view class="favorite-action">
+        <button class="fav-btn {{faved ? 'faved' : ''}}" bindtap="onToggleFav" disabled="{{favBusy}}" aria-label="{{faved ? '取消收藏' : '收藏这朵花'}}">
+          <text class="fav-icon">{{faved ? '♥' : '♡'}}</text>
+          <text>{{favBusy ? '处理中' : (faved ? '已收藏' : '收藏')}}</text>
+        </button>
       </view>
     </view>
 
@@ -27,6 +28,8 @@
       <view class="meaning-text">{{flower.meaning}}</view>
     </view>
 
+    <view class="meaning-note">{{flower.meaningNote}}</view>
+    <view wx:if="{{flower.meaningSource}}" class="meaning-source" bindtap="copyMeaningSource">{{flower.meaningSource.title}} · 复制来源</view>
     <!-- 基本信息 -->
     <view class="info-grid">
       <view class="info-item" wx:if="{{flower.family}}">
@@ -44,6 +47,14 @@
       <view class="info-item" wx:if="{{flower.colors.length}}">
         <view class="info-label">花色</view>
         <view class="info-value">{{flower.colorsText}}</view>
+      </view>
+      <view class="info-item gift-item" wx:if="{{flower.giftRecipientsText}}">
+        <view class="info-label gift-label">💝 适合送给谁</view>
+        <view class="info-value gift-value">{{flower.giftRecipientsText}}</view>
+      </view>
+      <view class="info-item gift-item" wx:if="{{flower.giftOccasionsText}}">
+        <view class="info-label gift-label">🎁 适合场景</view>
+        <view class="info-value gift-value">{{flower.giftOccasionsText}}</view>
       </view>
     </view>
 
@@ -70,8 +81,18 @@
       <view class="tag" wx:for="{{flower.tags}}" wx:key="*this"># {{item}}</view>
     </view>
 
+    <view class="image-credit" wx:if="{{flower.imageMeta}}">
+      <view>图片：{{flower.imageMeta.source}} · {{flower.imageMeta.license}}</view>
+      <text selectable>{{flower.imageMeta.author}}</text>
+      <view wx:if="{{flower.imageMeta.modification}}">{{flower.imageMeta.modification}}</view>
+      <view wx:if="{{flower.imageMeta.sourceUrl}}" class="credit-link" bindtap="copyImageSource">复制图片来源链接</view>
+    </view>
     <view class="safe-bottom"></view>
   </view>
 </view>
 
-<view class="loading-tip" wx:else>加载中…</view>
+<view class="detail-skeleton" wx:elif="{{loading}}" aria-label="正在加载花卉详情">
+  <view class="skeleton-hero shimmer"><image class="skeleton-flower petal-spin" src="/images/flower-loading.png" /><text>让花语慢慢绽放</text></view>
+  <view class="skeleton-content"><view class="skeleton-title shimmer"></view><view class="skeleton-meaning shimmer"></view><view class="skeleton-line shimmer"></view><view class="skeleton-line shimmer"></view></view>
+</view>
+<view class="detail-error" wx:else><image src="/images/flower-loading.png" /><view>{{error}}</view><button bindtap="loadFlower">重新加载</button></view>

@@ -19,9 +19,15 @@
 
 /* 标题行 */
 .title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  position: relative;
+  min-height: 72rpx;
+  padding-right: 184rpx;
+}
+.favorite-action {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 160rpx;
 }
 .name {
   font-size: 48rpx;
@@ -93,6 +99,25 @@
   font-size: 28rpx;
   font-weight: 500;
 }
+.gift-item {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  gap: 20rpx;
+}
+.gift-label {
+  flex: 0 0 186rpx;
+  color: #ad7b45;
+  font-size: 25rpx;
+  font-weight: 600;
+}
+.gift-value {
+  flex: 1;
+  min-width: 0;
+  margin-top: 0;
+  font-size: 27rpx;
+  overflow-wrap: break-word;
+}
 
 /* 内容区块 */
 .section {
@@ -128,3 +153,15 @@
 .safe-bottom {
   height: env(safe-area-inset-bottom);
 }
+.image-credit {
+  margin: 40rpx 0 24rpx;
+  font-size: 22rpx;
+  color: var(--text-light);
+  word-break: break-word;
+}
+.credit-link {
+  margin-top: 8rpx;
+  color: var(--primary);
+}
+
+.hero{height:560rpx;position:relative;overflow:hidden;background:#eee6df}.hero-img{position:absolute;inset:0}.hero-hd{opacity:0;transition:opacity .35s ease}.hero-hd.is-loaded{opacity:1}.hero-status{position:absolute;bottom:56rpx;right:24rpx;display:flex;align-items:center;padding:8rpx 18rpx;background:rgba(255,255,255,.85);border-radius:30rpx;font-size:21rpx;color:#786960}.petal-spin{width:32rpx;height:32rpx;margin-right:8rpx;animation:petal-turn 2.4s linear infinite}.meaning-note,.meaning-source{font-size:23rpx;line-height:1.7;margin:18rpx 4rpx 0;color:var(--text-light)}.meaning-source{color:var(--primary)}.fav-btn{width:160rpx;max-width:160rpx;flex:0 0 160rpx;box-sizing:border-box;justify-content:center;padding:12rpx 8rpx;min-width:0;margin:0;line-height:1.5}.fav-btn::after{border:0}.skeleton-hero{height:560rpx;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a88b8d;font-size:26rpx}.skeleton-flower{width:90rpx;height:90rpx;margin:0 0 20rpx}.skeleton-content{padding:36rpx}.skeleton-title{width:42%;height:48rpx;border-radius:10rpx}.skeleton-meaning{height:150rpx;border-radius:24rpx;margin:32rpx 0}.skeleton-line{height:24rpx;border-radius:8rpx;margin-top:20rpx}.skeleton-line:last-child{width:70%}.shimmer{background:linear-gradient(100deg,#f0e8e2 25%,#faf5f0 40%,#f0e8e2 60%);background-size:240% 100%;animation:shimmer 1.8s ease-in-out infinite}.detail-error{padding:140rpx 40rpx;text-align:center;color:var(--text-light)}.detail-error image{width:100rpx;height:100rpx;margin-bottom:30rpx}.detail-error button{margin-top:32rpx;background:var(--primary);color:#fff;border-radius:40rpx;font-size:28rpx}@keyframes petal-turn{to{transform:rotate(360deg)}}@keyframes shimmer{from{background-position:100% 0}to{background-position:-100% 0}}
