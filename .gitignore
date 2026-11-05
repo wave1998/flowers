@@ -5,6 +5,7 @@ miniprogram_npm/
 # 系统与编辑器
 .DS_Store
 *.log
+build/illustration-cloud/
 
 # 微信开发者工具的私有配置（含个人调试设置，不入库）
 project.private.config.json

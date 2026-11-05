@@ -43,10 +43,11 @@ function refreshFlowerById(id) {
     if (!data) return catalog.get(id)
     const local = catalog.get(id)
     const flower = local ? { ...data, ...local,
-      image: data.imageVersion === 2 ? data.image : local.image,
-      // 随包缩略图可以立即显示，避免等待云文件临时地址。
+      image: data.imageVersion === 2 && local.imageKind !== 'ai-illustration' ? data.image : local.image,
+      imagePlaceholder: !!local.imagePlaceholder,
+      // 使用本地目录登记的缩略图（可为云文件）。
       thumbnail: local.thumbnail,
-      imageMeta: data.imageVersion === 2 ? data.imageMeta : local.imageMeta
+      imageMeta: data.imageVersion === 2 && local.imageKind !== 'ai-illustration' ? data.imageMeta : local.imageMeta
     } : data
     if (!flower) return null
     const result = { ...flower, _cachedAt: Date.now() }
@@ -66,20 +67,27 @@ function requireLogin() {
 /** 是否已收藏 */
 async function isFavorite(flowerId) {
   if (!auth.isLoggedIn()) return false
-  const { total } = await db()
-    .collection(FAVORITES)
-    .where({ flowerId })
-    .count()
-  return total > 0
+  const flower = catalog.get(flowerId)
+  const ids = flower ? [flower._id, ...(flower.legacyIds || [])] : [flowerId]
+  for (const id of ids) {
+    const { total } = await db().collection(FAVORITES).where({ flowerId: id }).count()
+    if (total > 0) return true
+  }
+  return false
 }
 
 /** 切换收藏状态，返回切换后是否已收藏 */
 async function toggleFavorite(flower) {
   requireLogin()
   const col = db().collection(FAVORITES)
-  const { data } = await col.where({ flowerId: flower._id }).get()
-  if (data.length) {
-    await col.doc(data[0]._id).remove()
+  const ids = [flower._id, ...(flower.legacyIds || [])]
+  const records = []
+  for (const id of ids) {
+    const { data } = await col.where({ flowerId: id }).get()
+    records.push(...data)
+  }
+  if (records.length) {
+    for (const record of records) await col.doc(record._id).remove()
     return false
   }
   await col.add({
@@ -110,7 +118,10 @@ async function getFavorites() {
     .orderBy('createdAt', 'desc')
     .limit(100)
     .get()
-  return data
+  return data.map(record => {
+    const flower = catalog.get(record.flowerId)
+    return flower ? { ...record, thumbnail: flower.thumbnail, image: flower.image } : record
+  })
 }
 
 /**

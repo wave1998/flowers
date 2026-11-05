@@ -1,9 +1,11 @@
+const { onThumbnailError } = require('../../utils/image-fallback')
 const api = require('../../utils/cloud')
 const { debounce } = require('../../utils/util')
 
 const HISTORY_KEY = 'hyt_search_history'
 
 Page({
+  onThumbnailError,
   data: {
     keyword: '',
     results: [],

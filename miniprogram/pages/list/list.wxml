@@ -22,7 +22,7 @@
         <image
           class="f-img"
           style="height: {{item.boxHeight}}rpx"
-          src="{{item.thumbnail || item.image}}"
+          src="{{item.thumbnail || item.image}}" binderror="onThumbnailError" data-field="leftCol" data-index="{{index}}"
           mode="aspectFill"
           lazy-load
         />
@@ -44,7 +44,7 @@
         <image
           class="f-img"
           style="height: {{item.boxHeight}}rpx"
-          src="{{item.thumbnail || item.image}}"
+          src="{{item.thumbnail || item.image}}" binderror="onThumbnailError" data-field="rightCol" data-index="{{index}}"
           mode="aspectFill"
           lazy-load
         />

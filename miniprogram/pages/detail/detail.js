@@ -1,7 +1,7 @@
 const api = require('../../utils/cloud')
 const auth = require('../../utils/auth')
 Page({
-  data: { flower: null, faved: false, favBusy: false, loading: true, error: '', imageLoaded: false, imageFailed: false },
+  data: { flower: null, faved: false, favBusy: false, loading: true, error: '', imageLoaded: false, imageFailed: false, previewSrc: '' },
   onLoad(options) {
     this._id = options.id
     const cached = api.getCachedFlowerById(this._id)
@@ -85,11 +85,23 @@ Page({
   },
   onImageLoad() { clearTimeout(this._imageTimer); this.setData({ imageLoaded: true, imageFailed: false }) },
   onImageError() { clearTimeout(this._imageTimer); this.setData({ imageFailed: true }) },
+  onThumbnailError() {
+    const flower = this.data.flower
+    const fallback = flower && flower.fallbackThumbnail || '/images/flower-placeholder.png'
+    if (flower && flower.thumbnail !== fallback) this.setData({ 'flower.thumbnail': fallback })
+  },
   retryImage() { this.setData({ imageFailed: false, imageLoaded: false }); this.loadFlower() },
   previewImage() {
     const flower = this.data.flower
-    if (flower && !flower.imagePlaceholder) wx.previewImage({ urls: [this.data.imageFailed ? flower.thumbnail : flower.image] })
+    if (!flower || flower.imagePlaceholder) return
+    const original = flower.originalImage || (this.data.imageFailed ? flower.thumbnail : flower.image) || flower.thumbnail
+    if (!original) { wx.showToast({ title: '图片暂不可预览', icon: 'none' }); return }
+    // 代码包图片在部分微信环境中不能直接交给系统预览，使用 image 组件展示。
+    if (original.startsWith('/')) { this.setData({ previewSrc: original }); return }
+    wx.previewImage({ current: original, urls: [original], showmenu: true,
+      fail: () => { if (!this._destroyed) this.setData({ previewSrc: flower.thumbnail || flower.image }) } })
   },
+  closePreview() { this.setData({ previewSrc: '' }) },
   copyImageSource() {
     const source = this.data.flower && this.data.flower.imageMeta && this.data.flower.imageMeta.sourceUrl
     if (source) wx.setClipboardData({ data: source })

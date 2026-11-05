@@ -139,7 +139,15 @@ flowers/
 
 ### 资料范围与维护
 
-当前目录包含 **309 条花语资料**（含不同花色/园艺类型，并非声称 309 个不同物种）。其中 26 条配有署名、许可和来源可追溯的 iNaturalist 照片；其余明确显示通用花卉插画，不借用其他物种照片。
+当前目录包含 **261 条花语资料**（含不同物种和园艺类型，并非声称 261 个不同物种）。纯花色条目归入对应花卉详情，其编辑意象解读可在详情中查看和搜索，旧花色链接可解析到对应花卉。当前 156 条使用 AI 生成的彩铅插画；其余条目保留可追溯来源的照片或通用占位插画。
+
+彩铅插画登记在 `data/illustrations.json`，高清原图和旧缩略图备份在与本项目同级的 `../flowers-image-backup/`。小程序使用云图，云图不可用时显示包内通用占位图；文字目录仍随包提供。
+
+云端迁移：运行 `python3 scripts/prepare_illustration_cloud.py`，在 `build/illustration-cloud/` 生成以稳定 ID 命名的 `thumbnail/`、`detail/` 和 `original/`。缩略图可独立迁移：将 `thumbnail/` 上传至云环境的 `illustration-cloud/` 目录，核对文件数量及读取权限，再将父目录的 `cloud://…/illustration-cloud` 文件 ID 前缀写入 `data/illustration-thumbnail-cloud-prefix.txt`，运行 `python3 scripts/build_catalog.py`。已有收藏优先使用当前目录图片地址。详情图和原图也上传并核对完成后，可另将其父目录前缀写入 `data/illustration-cloud-prefix.txt` 并重建，启用高清图；如未设置缩略图专用前缀，该前缀也用于缩略图。对应文件上传及核对完成前不要设置前缀。
+
+在开发者工具和真机确认云图均可加载后，再在打包配置中排除 `miniprogram/images/illustrations/` 并确认实际上传包大小；保留本地文件以便回滚。回滚时移除相关前缀文件、重建目录并恢复打包包含该目录。列表、首页、搜索和收藏加载失败时显示通用占位图；详情页的失败展示需结合正在进行的布局修改验证。云存储可能产生费用；本地准备不代表已上传或发布。
+
+花语内容继续采用项目原有编辑解读及标明来源的历史译文，未复制日出日落网站的数据库。本地目录是列表和搜索的数据来源；云端已有记录不会因重新运行初始化而自动删除或覆盖，部署小程序前应另行规划云端数据迁移和收藏兼容。
 
 新增内容区分编辑意象解读与历史花语译文，历史译文来源为 Kate Greenaway 的 [Language of Flowers (1884)](https://www.gutenberg.org/ebooks/31591)。花语是文化表达，存在时代、地域和语境差异。编辑解读不冒充统一传统花语。
 
@@ -150,3 +158,7 @@ flowers/
 验证：`node --test tests/cloud.test.js`。覆盖离线目录完整性、分页/搜索、详情先显示、登录/取消/恢复收藏、身份隔离、昵称审核与手机号授权码校验等。
 
 头像昵称能力参考：[微信小程序官方头像昵称组件说明](https://github.com/wechat-miniprogram/mp-user-avatar/blob/master/README.md)。
+
+### 插画云接入与本地备份（2026-11-05）
+
+插画目录使用 `data/illustration-cloud-prefix.txt` 指向云存储；原图及旧缩略图移至同级 `flowers-image-backup/`。小程序上传排除 `images/illustrations/` 和 `images/thumbs/`，仅保留通用占位与界面图标。运行构建脚本需要保留该同级备份。云图加载失败时显示通用占位图。云端详情图和原图的完整性、客户端读取权限尚需在合适时确认。云函数 `initDatabase/images/` 的历史照片是独立云函数资源，不属于小程序代码包。

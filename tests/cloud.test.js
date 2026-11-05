@@ -106,7 +106,7 @@ test('offline search matches names and meanings literally without a cloud reques
   const rows = await api.searchFlowers('思念')
   assert.ok(rows.length > 10)
   assert.equal((await api.searchFlowers('.*+[a]')).length, 0)
-  assert.ok((await api.searchFlowers('玫瑰')).some(f => f.name === '红玫瑰'))
+  assert.ok((await api.searchFlowers('红玫瑰')).some(f => f.name === '玫瑰'))
 })
 
 test('client advances cursor after failed items and reports failures', async () => {
@@ -352,17 +352,61 @@ test('list only updates back-to-top visibility across the scroll threshold', () 
   assert.equal(destination.url, '/pages/search/search')
 })
 
-test('catalog contains at least 300 distinct entries and complete classifications', () => {
+test('catalog contains at least 200 distinct entries and complete classifications', () => {
   const catalog = require('../miniprogram/utils/catalog')
-  assert.ok(catalog.count >= 300)
+  assert.ok(catalog.count >= 200)
   assert.equal(new Set(catalog.flowers.map(f => f.name)).size, catalog.count)
   assert.equal(new Set(catalog.flowers.map(f => f._id)).size, catalog.count)
   for (const f of catalog.flowers) {
     assert.ok(f.name && f.meaning && f.description && f.meaningKind && f.meaningNote, f.name)
-    assert.ok(fs.existsSync(path.join(root, 'miniprogram', f.thumbnail)), f.name)
+    assert.ok(f.thumbnail.startsWith('cloud://') || fs.existsSync(path.join(root, 'miniprogram', f.thumbnail)), f.name)
+    if (f.fallbackThumbnail) assert.ok(fs.existsSync(path.join(root, 'miniprogram', f.fallbackThumbnail)), f.name)
     if (f.meaningKind === 'historical') assert.ok(f.meaningSource.url && f.meaningSource.original)
     if (f.imagePlaceholder) assert.match(f.image, /placeholder/)
   }
+})
+
+test('every registered illustration has an original and an app thumbnail', () => {
+  const art = require('../data/illustrations.json')
+  const catalog = require('../miniprogram/utils/catalog')
+  for (const [name, entry] of Object.entries(art)) {
+    const flower = catalog.flowers.find(f => f.name === name)
+    assert.ok(flower, name)
+    assert.equal(flower.imageKind, 'ai-illustration', name)
+    assert.ok(flower.fallbackThumbnail || flower.thumbnail, name)
+    if (flower.thumbnail.startsWith('cloud://')) assert.ok(flower.thumbnail.endsWith(`/thumbnail/${flower._id}.jpg`), name)
+    assert.ok(fs.existsSync(path.join(root, entry.original)), name)
+  }
+})
+
+test('colour variants resolve to their parent and remain searchable by their old names', () => {
+  const catalog = require('../miniprogram/utils/catalog')
+  const crypto = require('node:crypto')
+  for (const [variant, parent] of [['红玫瑰', '玫瑰'], ['蓝绣球', '绣球花'], ['桔梗花（白）', '桔梗']]) {
+    const oldId = 'flower_' + crypto.createHash('sha1').update(variant).digest('hex')
+    assert.equal(catalog.get(oldId).name, parent)
+    assert.ok(catalog.search(variant).some(f => f.name === parent))
+    assert.ok(!catalog.flowers.some(f => f.name === variant))
+  }
+})
+
+test('a legacy colour favorite is recognized and removed from its parent', async () => {
+  const catalog = require('../miniprogram/utils/catalog')
+  const rose = catalog.flowers.find(f => f.name === '玫瑰')
+  const records = [{ _id: 'old', flowerId: rose.legacyIds[0] }]
+  const col = {
+    where: ({ flowerId }) => ({
+      count: async () => ({ total: records.filter(r => r.flowerId === flowerId).length }),
+      get: async () => ({ data: records.filter(r => r.flowerId === flowerId) })
+    }),
+    doc: id => ({ remove: async () => { records.splice(records.findIndex(r => r._id === id), 1) } })
+  }
+  const api = loadModule('miniprogram/utils/cloud.js', { './auth': { isLoggedIn: () => true } }, {
+    wx: { cloud: { database: () => ({ collection: () => col }) } }
+  })
+  assert.equal(await api.isFavorite(rose._id), true)
+  assert.equal(await api.toggleFavorite(rose), false)
+  assert.equal(records.length, 0)
 })
 
 test('catalog list, detail and search work offline; detail opens with the same stable ID', async () => {
@@ -395,6 +439,42 @@ test('detail displays cached text before cloud refresh settles', async () => {
   assert.equal(page.data.flower.name, '玫瑰')
   assert.equal(page.data.loading, false)
   await Promise.resolve(); page.onUnload()
+})
+
+test('detail previews the original when available and otherwise the displayed thumbnail', () => {
+  let page, preview, toast
+  loadModule('miniprogram/pages/detail/detail.js', { '../../utils/cloud': {}, '../../utils/auth': {} }, {
+    Page: value => { page = value },
+    wx: { previewImage: options => { preview = options }, showToast: options => { toast = options } }
+  })
+  page.setData = patch => Object.assign(page.data, patch)
+  page.data = { flower: { imageKind: 'ai-illustration', image: '/thumb.jpg', originalImage: 'cloud://env/original.png' } }
+  page.previewImage()
+  assert.equal(preview.urls[0], 'cloud://env/original.png')
+  assert.equal(preview.showmenu, true)
+  preview.fail()
+  assert.equal(page.data.previewSrc, '/thumb.jpg')
+  page.closePreview()
+  assert.equal(page.data.previewSrc, '')
+  preview = undefined
+  page.data.flower.originalImage = undefined
+  page.previewImage()
+  assert.equal(preview, undefined)
+  assert.equal(page.data.previewSrc, '/thumb.jpg')
+  assert.equal(toast, undefined)
+})
+
+test('a stale cloud placeholder cannot hide a local illustration', async () => {
+  const catalog = require('../miniprogram/utils/catalog')
+  const flower = catalog.flowers.find(f => f.imageKind === 'ai-illustration')
+  const api = loadModule('miniprogram/utils/cloud.js', {}, {
+    wx: { cloud: { database: () => ({ collection: () => ({ doc: () => ({
+      get: async () => ({ data: { imagePlaceholder: true, image: '/old-placeholder.png' } })
+    }) }) }) } }
+  })
+  const refreshed = await api.refreshFlowerById(flower._id)
+  assert.equal(refreshed.imagePlaceholder, false)
+  assert.equal(refreshed.image, flower.image)
 })
 
 test('favorite opens login for guests and resumes once after successful login', async () => {

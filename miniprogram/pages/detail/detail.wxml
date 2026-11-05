@@ -1,10 +1,11 @@
 <view class="page" wx:if="{{flower}}">
   <view class="hero">
-    <image class="hero-img hero-preview" src="{{flower.thumbnail || '/images/flower-placeholder.png'}}" mode="aspectFill" />
-    <image wx:if="{{!flower.imagePlaceholder && !imageFailed}}" class="hero-img hero-hd {{imageLoaded ? 'is-loaded' : ''}}" src="{{flower.image}}" mode="aspectFill" bindload="onImageLoad" binderror="onImageError" bindtap="previewImage" show-menu-by-longpress />
+    <image class="hero-img hero-preview" src="{{flower.thumbnail || '/images/flower-placeholder.png'}}" mode="widthFix" bindtap="previewImage" binderror="onThumbnailError" />
+    <image wx:if="{{!flower.imagePlaceholder && !imageFailed}}" class="hero-img hero-hd {{imageLoaded ? 'is-loaded' : ''}}" src="{{flower.image}}" mode="aspectFit" bindload="onImageLoad" binderror="onImageError" bindtap="previewImage" show-menu-by-longpress />
     <view class="hero-status" wx:if="{{flower.imagePlaceholder}}">花卉插画 · 实拍待补充</view>
     <view class="hero-status" wx:elif="{{imageFailed}}" bindtap="retryImage">已显示缩略图 · 点击重试高清图</view>
     <view class="hero-status" wx:elif="{{!imageLoaded}}"><image class="petal-spin" src="/images/flower-loading.png" /> 高清图正在绽放</view>
+    <view class="hero-status" wx:else catchtap="previewImage" role="button" aria-label="点击图片预览">点击图片预览</view>
   </view>
 
   <view class="content">
@@ -29,6 +30,11 @@
     </view>
 
     <view class="meaning-note">{{flower.meaningNote}}</view>
+    <view class="section" wx:if="{{flower.colorMeanings.length}}">
+      <view class="section-title">🌸 不同花色的心意</view>
+      <view class="meaning-note">以下为花语亭编辑意象解读，花语因文化和个人理解而异。</view>
+      <view class="para" wx:for="{{flower.colorMeanings}}" wx:key="name">{{item.name}}：{{item.meaning}}</view>
+    </view>
     <view wx:if="{{flower.meaningSource}}" class="meaning-source" bindtap="copyMeaningSource">{{flower.meaningSource.title}} · 复制来源</view>
     <!-- 基本信息 -->
     <view class="info-grid">
@@ -88,6 +94,10 @@
       <view wx:if="{{flower.imageMeta.sourceUrl}}" class="credit-link" bindtap="copyImageSource">复制图片来源链接</view>
     </view>
     <view class="safe-bottom"></view>
+  </view>
+  <view wx:if="{{previewSrc}}" class="image-preview" bindtap="closePreview" role="button" aria-label="关闭图片预览">
+    <image class="image-preview-content" src="{{previewSrc}}" mode="aspectFit" show-menu-by-longpress />
+    <view class="image-preview-close">关闭</view>
   </view>
 </view>
 

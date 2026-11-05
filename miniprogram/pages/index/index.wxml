@@ -42,7 +42,7 @@
     <view class="card daily-card" bindtap="goDetail" data-id="{{daily._id}}">
       <image
         class="daily-img"
-        src="{{daily.thumbnail || daily.image}}"
+        src="{{daily.thumbnail || daily.image}}" binderror="onThumbnailError" data-field="daily"
         mode="aspectFill"
         lazy-load
       />
@@ -86,7 +86,7 @@
         bindtap="goDetail"
         data-id="{{item._id}}"
       >
-        <image class="hot-img" src="{{item.thumbnail || item.image}}" mode="aspectFill" lazy-load />
+        <image class="hot-img" src="{{item.thumbnail || item.image}}" binderror="onThumbnailError" data-field="hot" data-index="{{index}}" mode="aspectFill" lazy-load />
         <view class="hot-name">{{item.name}}</view>
         <view class="hot-meaning ellipsis">{{item.meaning}}</view>
       </view>

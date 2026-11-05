@@ -38,7 +38,42 @@ for line in (ROOT / 'data/flower-meanings.tsv').read_text().splitlines():
             meaningSource=dict(title='Language of Flowers · Kate Greenaway (1884)',url='https://www.gutenberg.org/ebooks/31591',entry=en,original=original),
             description=f'1884 年的《Language of Flowers》将「{en}」与「{translated}」联系起来。这是一种历史文化表达；今天赠送「{name}」时，也可以赋予它属于你们的含义。')
     seed.append(row); existing.add(name)
+# Collapse colour-only entries into their existing parent without changing IDs of
+# either the parent or old shared links and saved favourites.
+parents = {r['name']: r for r in seed}
+colour_parents = {'玫瑰', '郁金香', '百合', '康乃馨', '绣球花', '洋桔梗', '飞燕草', '非洲菊', '芍药', '牡丹', '风信子', '睡莲'}
+special = {'红梅': '梅花', '白梅': '梅花', '蓝绣球': '绣球花', '粉绣球': '绣球花', '白绣球': '绣球花', '桔梗花（白）': '桔梗', '桔梗花（紫）': '桔梗'}
+merged = {}
+for row in list(seed[26:]):
+    name = row['name']
+    target = special.get(name)
+    if not target:
+        for prefix in ('香槟', '双色', '红', '白', '粉', '黄', '橙', '紫', '蓝'):
+            candidate = name[len(prefix):] if name.startswith(prefix) else ''
+            if candidate in colour_parents:
+                target = candidate
+                break
+    if not target or target not in parents: continue
+    merged.setdefault(target, []).append(row)
+    seed.remove(row)
+for parent, variants in merged.items():
+    row = parents[parent]
+    row['colorMeanings'] = [{'name': v['name'], 'meaning': v['meaning']} for v in variants]
+    row['legacyIds'] = ['flower_'+hashlib.sha1(v['name'].encode()).hexdigest() for v in variants]
+# Rebuild public entries above after merging on subsequent section.
+assert len(seed)>=200 and len({r['name'] for r in seed})==len(seed)
+
 manifest = json.loads((ROOT / 'cloudfunctions/initDatabase/images/manifest.json').read_text())
+illustrations = json.loads((ROOT / 'data/illustrations.json').read_text())
+pending_illustrations = json.loads((ROOT / 'data/illustration-pending.json').read_text())
+prefix_file = ROOT / 'data/illustration-cloud-prefix.txt'
+cloud_prefix = prefix_file.read_text().strip().rstrip('/') if prefix_file.exists() else ''
+thumb_prefix_file = ROOT / 'data/illustration-thumbnail-cloud-prefix.txt'
+thumb_prefix = thumb_prefix_file.read_text().strip().rstrip('/') if thumb_prefix_file.exists() else cloud_prefix
+if cloud_prefix and (not cloud_prefix.startswith('cloud://') or '\n' in cloud_prefix):
+    raise ValueError('illustration-cloud-prefix.txt 应填写云存储目录的 cloud:// 文件 ID 前缀')
+if thumb_prefix and (not thumb_prefix.startswith('cloud://') or '\n' in thumb_prefix):
+    raise ValueError('illustration-thumbnail-cloud-prefix.txt 应填写云存储目录的 cloud:// 文件 ID 前缀')
 public=[]
 for row in seed:
     if 'meaningKind' not in row:
@@ -47,15 +82,25 @@ for row in seed:
     item={k:v for k,v in row.items() if k!='imageQuery'}
     item['_id']='flower_'+hashlib.sha1(row['name'].encode()).hexdigest()
     image=manifest.get(row['name'])
-    if image:
-        thumb=image['thumbnailFile']; shutil.copyfile(ROOT/'cloudfunctions/initDatabase/images'/thumb, ROOT/'miniprogram/images/thumbs'/thumb)
-        item.update(thumbnail='/images/thumbs/'+thumb, image=image['imageUrl'].replace('/medium.', '/large.'),
+    if row['name'] in illustrations or (thumb_prefix and row['name'] in pending_illustrations):
+        art = illustrations.get(row['name']) or pending_illustrations[row['name']]
+        fallback = '/images/flower-placeholder.png'
+        assert (ROOT / art['original']).exists()
+        item.update(thumbnail=fallback, image=fallback, fallbackThumbnail=fallback, imageKind='ai-illustration', imgRatio=1)
+        if thumb_prefix:
+            thumb = f"{thumb_prefix}/thumbnail/{item['_id']}.jpg"
+            item.update(thumbnail=thumb, image=thumb)
+        if cloud_prefix:
+            # 部署者仅在上传并核对三种图片后填写目录前缀。
+            item.update(image=f"{cloud_prefix}/detail/{item['_id']}.jpg",
+                        originalImage=f"{cloud_prefix}/original/{item['_id']}.png")
+    elif image:
+        item.update(thumbnail='/images/flower-placeholder.png', image=image['imageUrl'].replace('/medium.', '/large.'),
             imgRatio=max(.6,min(1.6,image['height']/image['width'])),
             imageMeta={k:image[k] for k in ['source','title','sourceUrl','license','author','modification']})
     else:
         item.update(image='/images/flower-placeholder.png',thumbnail='/images/flower-placeholder.png',imagePlaceholder=True)
     public.append(item)
-assert len(seed)>=300 and len({r['name'] for r in seed})==len(seed)
 (ROOT/'cloudfunctions/initDatabase/seed.json').write_text(json.dumps(seed,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'miniprogram/data/flowers.js').write_text('module.exports = '+json.dumps(public,ensure_ascii=False,separators=(',',':'))+'\n')
 print(f'{len(public)} entries; {len(manifest)} photographs; {len(history)} sourced historical meanings')

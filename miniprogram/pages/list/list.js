@@ -1,3 +1,4 @@
+const { onThumbnailError } = require('../../utils/image-fallback')
 const api = require('../../utils/cloud')
 
 const PAGE_SIZE = 20
@@ -5,6 +6,7 @@ const COL_WIDTH = 343 // rpx，单列图片宽度（750 - 24*2 页边距 - 16 �
 const BODY_HEIGHT = 118 // rpx，卡片文字区域大致高度
 
 Page({
+  onThumbnailError,
   data: {
     flowers: [],
     leftCol: [],

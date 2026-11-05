@@ -1,6 +1,8 @@
+const { onThumbnailError } = require('../../utils/image-fallback')
 const api = require('../../utils/cloud')
 const auth = require('../../utils/auth')
 Page({
+  onThumbnailError,
   data: { user: null, avatarUrl: '', nickname: '', favorites: [], favMeanings: 0, loading: true, error: '' },
   async onShow() {
     await auth.restore()

@@ -39,7 +39,7 @@
       data-name="{{item.name}}"
       data-favid="{{item._id}}"
     >
-      <image class="fav-img" src="{{item.thumbnail || item.image}}" mode="aspectFill" lazy-load />
+      <image class="fav-img" src="{{item.thumbnail || item.image}}" binderror="onThumbnailError" data-field="favorites" data-index="{{index}}" mode="aspectFill" lazy-load />
       <view class="fav-name">{{item.name}}</view>
       <view class="fav-meaning ellipsis">{{item.meaning}}</view>
     </view>

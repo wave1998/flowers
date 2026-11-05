@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-05",
+  "catalog_count": 261,
+  "illustrations_in_catalog": 156,
+  "pending_cloud_migration": 105,
+  "remaining_without_illustration": [],
+  "notes": [
+    "本批新增35种，使用内置 imagegen 分别生成彩铅插画并检查画面；水金英、荆芥、鸢尾兰和水葱已按植物形态重绘。",
+    "105张待迁移插画尚未上传云存储或接入小程序；原有156条保持不变。",
+    "提示词：以对应植物的学名和花、叶、茎特征为主体，暖米色纹理纸背景，细腻自然彩铅植物图鉴插画，居中，无文字、边框或水印。"
+  ]
+}

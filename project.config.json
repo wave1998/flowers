@@ -46,7 +46,10 @@
   },
   "simulatorPluginLibVersion": {},
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      { "type": "folder", "value": "images/illustrations" },
+      { "type": "folder", "value": "images/thumbs" }
+    ],
     "include": []
   }
 }

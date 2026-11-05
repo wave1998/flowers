@@ -33,6 +33,45 @@
       "告白",
       "纪念日",
       "约会"
+    ],
+    "colorMeanings": [
+      {
+        "name": "红玫瑰",
+        "meaning": "热烈的爱、勇敢告白"
+      },
+      {
+        "name": "白玫瑰",
+        "meaning": "纯净的心、真诚相待"
+      },
+      {
+        "name": "粉玫瑰",
+        "meaning": "温柔心意、甜蜜感谢"
+      },
+      {
+        "name": "黄玫瑰",
+        "meaning": "友谊、珍惜当下"
+      },
+      {
+        "name": "橙玫瑰",
+        "meaning": "活力、心动的开始"
+      },
+      {
+        "name": "紫玫瑰",
+        "meaning": "珍贵相遇、浪漫遐想"
+      },
+      {
+        "name": "香槟玫瑰",
+        "meaning": "温柔陪伴、长久心意"
+      }
+    ],
+    "legacyIds": [
+      "flower_e343a624ffcdd26709859cb225f5e0f12218ef12",
+      "flower_48a0e5cbc95bf3991e69b23afba870ec3a9b40bb",
+      "flower_be054e5581dd79c407eef5eabf47d2121a2b4227",
+      "flower_3bcee7e4c88e914c2deed251b417cfb13712b405",
+      "flower_214c5f9204f670ae1017f69a93bb846ab3dc1192",
+      "flower_2f7543fcadf96e889c89d43b06295930ac87c133",
+      "flower_322a9ba15d970529245a844de3b190da8182602e"
     ]
   },
   {
@@ -173,6 +212,20 @@
       "新春祝福",
       "表达敬意",
       "鼓励打气"
+    ],
+    "colorMeanings": [
+      {
+        "name": "红梅",
+        "meaning": "不畏困难、坚守初心"
+      },
+      {
+        "name": "白梅",
+        "meaning": "清雅自持、纯净心意"
+      }
+    ],
+    "legacyIds": [
+      "flower_ee59007b396e316910fa9f723569f95f19a4e36c",
+      "flower_f7d24e9cafc1c77f242f30944de1b6e7250fe6fc"
     ]
   },
   {
@@ -211,6 +264,40 @@
       "生日",
       "春日祝福",
       "婚礼"
+    ],
+    "colorMeanings": [
+      {
+        "name": "红郁金香",
+        "meaning": "热情告白、坚定的爱"
+      },
+      {
+        "name": "白郁金香",
+        "meaning": "纯净祝福、真挚心意"
+      },
+      {
+        "name": "粉郁金香",
+        "meaning": "温柔呵护、美好祝愿"
+      },
+      {
+        "name": "黄郁金香",
+        "meaning": "明朗心情、灿烂笑容"
+      },
+      {
+        "name": "紫郁金香",
+        "meaning": "优雅、珍贵的心意"
+      },
+      {
+        "name": "双色郁金香",
+        "meaning": "独特相遇、多彩人生"
+      }
+    ],
+    "legacyIds": [
+      "flower_4b19ea5006a51268f3f2782be7ebba087d5e8199",
+      "flower_ffcbb9deea98eeacb043c37066cea9b63470bed7",
+      "flower_3d325e0fcbc197428c7b398298b616a3263c850b",
+      "flower_9d088ce7f753b234d073ba171623f21c05288224",
+      "flower_cae865fc507373b13e3055a189f29cd937243999",
+      "flower_aa9eab5ed9ff5e369c2963f3da758ccfd7a8b581"
     ]
   },
   {
@@ -285,6 +372,25 @@
       "婚礼",
       "乔迁",
       "开业庆祝"
+    ],
+    "colorMeanings": [
+      {
+        "name": "黄牡丹",
+        "meaning": "明亮祝愿、珍贵相遇"
+      },
+      {
+        "name": "白牡丹",
+        "meaning": "清雅丰盈、坦荡的心"
+      },
+      {
+        "name": "红牡丹",
+        "meaning": "热烈祝福、丰盛喜悦"
+      }
+    ],
+    "legacyIds": [
+      "flower_4caf822a40ed74bf4f7919f14d3a7e3dfe4e3268",
+      "flower_50aa47af18c2e45b29b1260c95625278446765b3",
+      "flower_5a5463ec44dada4b5b01232dfad4ffe8a904f779"
     ]
   },
   {
@@ -359,6 +465,25 @@
       "婚礼",
       "乔迁",
       "生日祝福"
+    ],
+    "colorMeanings": [
+      {
+        "name": "白百合",
+        "meaning": "纯洁、温柔"
+      },
+      {
+        "name": "粉百合",
+        "meaning": "温柔祝福、被爱环绕"
+      },
+      {
+        "name": "黄百合",
+        "meaning": "明亮的快乐、感谢相伴"
+      }
+    ],
+    "legacyIds": [
+      "flower_2a3eefb34de560359df950e5c62418d145bf0d3b",
+      "flower_685cdef43cfc51abca124c7bc63acbfa89652da7",
+      "flower_fc284515d6bb7bda09c91051d84b8659cbbf515a"
     ]
   },
   {
@@ -396,6 +521,30 @@
       "母亲节",
       "教师节",
       "表达感谢"
+    ],
+    "colorMeanings": [
+      {
+        "name": "红康乃馨",
+        "meaning": "深深敬爱、感念亲恩"
+      },
+      {
+        "name": "粉康乃馨",
+        "meaning": "温柔母爱、永远惦念"
+      },
+      {
+        "name": "白康乃馨",
+        "meaning": "纯净的爱、温柔怀念"
+      },
+      {
+        "name": "双色康乃馨",
+        "meaning": "丰富心意、细腻关怀"
+      }
+    ],
+    "legacyIds": [
+      "flower_438fd627b5cb3bee5eceb739019a6d2cbbedff00",
+      "flower_76bfdff9e94ef14476fce355a492b8c50c89d5b6",
+      "flower_fa830cd0359be9bc725994dc9162ed17ce263f18",
+      "flower_71069792526def2629aa5873c5c0d19fbee88230"
     ]
   },
   {
@@ -573,6 +722,20 @@
       "告白",
       "纪念日",
       "表达真心"
+    ],
+    "colorMeanings": [
+      {
+        "name": "桔梗花（白）",
+        "meaning": "纯净心意、真诚等待"
+      },
+      {
+        "name": "桔梗花（紫）",
+        "meaning": "深深思念、安静的爱"
+      }
+    ],
+    "legacyIds": [
+      "flower_8b01127c39f4948bb112c12969e38c5eae5f1173",
+      "flower_ab4f0b8efb45962055d52f559993afae3f641b17"
     ]
   },
   {
@@ -934,160 +1097,6 @@
     ]
   },
   {
-    "name": "红玫瑰",
-    "meaning": "热烈的爱、勇敢告白",
-    "tags": [
-      "热烈的爱",
-      "勇敢告白"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「红玫瑰」选取「热烈的爱、勇敢告白」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "恋人",
-      "伴侣"
-    ],
-    "giftOccasions": [
-      "告白",
-      "纪念日",
-      "生日"
-    ]
-  },
-  {
-    "name": "白玫瑰",
-    "meaning": "纯净的心、真诚相待",
-    "tags": [
-      "纯净的心",
-      "真诚相待"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白玫瑰」选取「纯净的心、真诚相待」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "恋人",
-      "新婚夫妇"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "纪念日",
-      "表达真心"
-    ]
-  },
-  {
-    "name": "粉玫瑰",
-    "meaning": "温柔心意、甜蜜感谢",
-    "tags": [
-      "温柔心意",
-      "甜蜜感谢"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉玫瑰」选取「温柔心意、甜蜜感谢」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "恋人",
-      "伴侣"
-    ],
-    "giftOccasions": [
-      "告白",
-      "纪念日",
-      "生日"
-    ]
-  },
-  {
-    "name": "黄玫瑰",
-    "meaning": "友谊、珍惜当下",
-    "tags": [
-      "友谊",
-      "珍惜当下"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「黄玫瑰」选取「友谊、珍惜当下」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "同事"
-    ],
-    "giftOccasions": [
-      "朋友生日",
-      "表达感谢",
-      "日常问候"
-    ]
-  },
-  {
-    "name": "橙玫瑰",
-    "meaning": "活力、心动的开始",
-    "tags": [
-      "活力",
-      "心动的开始"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「橙玫瑰」选取「活力、心动的开始」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "恋人",
-      "伴侣"
-    ],
-    "giftOccasions": [
-      "告白",
-      "纪念日",
-      "生日"
-    ]
-  },
-  {
-    "name": "紫玫瑰",
-    "meaning": "珍贵相遇、浪漫遐想",
-    "tags": [
-      "珍贵相遇",
-      "浪漫遐想"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「紫玫瑰」选取「珍贵相遇、浪漫遐想」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "恋人",
-      "伴侣"
-    ],
-    "giftOccasions": [
-      "告白",
-      "纪念日",
-      "生日"
-    ]
-  },
-  {
-    "name": "香槟玫瑰",
-    "meaning": "温柔陪伴、长久心意",
-    "tags": [
-      "温柔陪伴",
-      "长久心意"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「香槟玫瑰」选取「温柔陪伴、长久心意」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "恋人",
-      "伴侣"
-    ],
-    "giftOccasions": [
-      "告白",
-      "纪念日",
-      "生日"
-    ]
-  },
-  {
     "name": "多头玫瑰",
     "meaning": "细碎的幸福、丰盛的爱",
     "tags": [
@@ -1107,220 +1116,6 @@
       "告白",
       "纪念日",
       "生日"
-    ]
-  },
-  {
-    "name": "红郁金香",
-    "meaning": "热情告白、坚定的爱",
-    "tags": [
-      "热情告白",
-      "坚定的爱"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「红郁金香」选取「热情告白、坚定的爱」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
-    ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "白郁金香",
-    "meaning": "纯净祝福、真挚心意",
-    "tags": [
-      "纯净祝福",
-      "真挚心意"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白郁金香」选取「纯净祝福、真挚心意」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
-    ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "粉郁金香",
-    "meaning": "温柔呵护、美好祝愿",
-    "tags": [
-      "温柔呵护",
-      "美好祝愿"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉郁金香」选取「温柔呵护、美好祝愿」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
-    ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "黄郁金香",
-    "meaning": "明朗心情、灿烂笑容",
-    "tags": [
-      "明朗心情",
-      "灿烂笑容"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「黄郁金香」选取「明朗心情、灿烂笑容」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
-    ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "紫郁金香",
-    "meaning": "优雅、珍贵的心意",
-    "tags": [
-      "优雅",
-      "珍贵的心意"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「紫郁金香」选取「优雅、珍贵的心意」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
-    ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "双色郁金香",
-    "meaning": "独特相遇、多彩人生",
-    "tags": [
-      "独特相遇",
-      "多彩人生"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「双色郁金香」选取「独特相遇、多彩人生」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
-    ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "白百合",
-    "meaning": "纯洁、温柔",
-    "tags": [
-      "纯洁",
-      "温柔"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "historical",
-    "meaningNote": "译自 Kate Greenaway《Language of Flowers》（1884）；历史花语不代表当代各地的统一用法。",
-    "description": "1884 年的《Language of Flowers》将「Lily, White」与「纯洁、温柔」联系起来。这是一种历史文化表达；今天赠送「白百合」时，也可以赋予它属于你们的含义。",
-    "nameEn": "Lily, White",
-    "meaningSource": {
-      "title": "Language of Flowers · Kate Greenaway (1884)",
-      "url": "https://www.gutenberg.org/ebooks/31591",
-      "entry": "Lily, White",
-      "original": "Purity. Sweetness."
-    },
-    "giftRecipients": [
-      "新婚夫妇",
-      "恋人",
-      "亲友"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "乔迁",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "粉百合",
-    "meaning": "温柔祝福、被爱环绕",
-    "tags": [
-      "温柔祝福",
-      "被爱环绕"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉百合」选取「温柔祝福、被爱环绕」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "恋人",
-      "亲友"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "乔迁",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "黄百合",
-    "meaning": "明亮的快乐、感谢相伴",
-    "tags": [
-      "明亮的快乐",
-      "感谢相伴"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「黄百合」选取「明亮的快乐、感谢相伴」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "恋人",
-      "亲友"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "乔迁",
-      "生日祝福"
     ]
   },
   {
@@ -1436,97 +1231,6 @@
       "婚礼",
       "乔迁",
       "生日祝福"
-    ]
-  },
-  {
-    "name": "红康乃馨",
-    "meaning": "深深敬爱、感念亲恩",
-    "tags": [
-      "深深敬爱",
-      "感念亲恩"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「红康乃馨」选取「深深敬爱、感念亲恩」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "母亲",
-      "长辈",
-      "老师"
-    ],
-    "giftOccasions": [
-      "母亲节",
-      "教师节",
-      "表达感谢"
-    ]
-  },
-  {
-    "name": "粉康乃馨",
-    "meaning": "温柔母爱、永远惦念",
-    "tags": [
-      "温柔母爱",
-      "永远惦念"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉康乃馨」选取「温柔母爱、永远惦念」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "母亲",
-      "长辈",
-      "老师"
-    ],
-    "giftOccasions": [
-      "母亲节",
-      "教师节",
-      "表达感谢"
-    ]
-  },
-  {
-    "name": "白康乃馨",
-    "meaning": "纯净的爱、温柔怀念",
-    "tags": [
-      "纯净的爱",
-      "温柔怀念"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白康乃馨」选取「纯净的爱、温柔怀念」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "母亲",
-      "长辈",
-      "亲人"
-    ],
-    "giftOccasions": [
-      "表达敬爱",
-      "温柔怀念"
-    ]
-  },
-  {
-    "name": "双色康乃馨",
-    "meaning": "丰富心意、细腻关怀",
-    "tags": [
-      "丰富心意",
-      "细腻关怀"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「双色康乃馨」选取「丰富心意、细腻关怀」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "母亲",
-      "长辈",
-      "老师"
-    ],
-    "giftOccasions": [
-      "母亲节",
-      "教师节",
-      "表达感谢"
     ]
   },
   {
@@ -1990,75 +1694,25 @@
     "meaningKind": "editorial",
     "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
     "description": "花语亭为「绣球花」选取「团聚、圆满的祝福」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "朋友",
-      "家人"
+    "colorMeanings": [
+      {
+        "name": "蓝绣球",
+        "meaning": "温柔理解、安静陪伴"
+      },
+      {
+        "name": "粉绣球",
+        "meaning": "甜蜜相聚、感恩相伴"
+      },
+      {
+        "name": "白绣球",
+        "meaning": "纯净心意、团圆祝福"
+      }
     ],
-    "giftOccasions": [
-      "婚礼",
-      "家庭团聚",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "蓝绣球",
-    "meaning": "温柔理解、安静陪伴",
-    "tags": [
-      "温柔理解",
-      "安静陪伴"
+    "legacyIds": [
+      "flower_c81631a2b1783332b79c91b82e5c471a57c9e00f",
+      "flower_44711e09aafe12fb92e63270751afef9f2a11177",
+      "flower_0f5b9b354d1bbb9cefc34c840457fb6dcd82921d"
     ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「蓝绣球」选取「温柔理解、安静陪伴」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "朋友",
-      "家人"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "家庭团聚",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "粉绣球",
-    "meaning": "甜蜜相聚、感恩相伴",
-    "tags": [
-      "甜蜜相聚",
-      "感恩相伴"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉绣球」选取「甜蜜相聚、感恩相伴」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "朋友",
-      "家人"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "家庭团聚",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "白绣球",
-    "meaning": "纯净心意、团圆祝福",
-    "tags": [
-      "纯净心意",
-      "团圆祝福"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白绣球」选取「纯净心意、团圆祝福」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
     "giftRecipients": [
       "新婚夫妇",
       "朋友",
@@ -2128,75 +1782,25 @@
     "meaningKind": "editorial",
     "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
     "description": "花语亭为「洋桔梗」选取「真诚的爱、细腻关怀」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "恋人",
-      "亲友"
+    "colorMeanings": [
+      {
+        "name": "白洋桔梗",
+        "meaning": "纯净祝福、真挚相伴"
+      },
+      {
+        "name": "粉洋桔梗",
+        "meaning": "温柔浪漫、珍惜相遇"
+      },
+      {
+        "name": "紫洋桔梗",
+        "meaning": "优雅心意、深深思念"
+      }
     ],
-    "giftOccasions": [
-      "婚礼",
-      "乔迁",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "白洋桔梗",
-    "meaning": "纯净祝福、真挚相伴",
-    "tags": [
-      "纯净祝福",
-      "真挚相伴"
+    "legacyIds": [
+      "flower_9c31e28b9db6feb7bd4bd991bed30c344606ad4e",
+      "flower_4943fdd6eb29949d5d460aafef92165872baaca5",
+      "flower_3d9222e7e5319dd584526892f330fdffd9874077"
     ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白洋桔梗」选取「纯净祝福、真挚相伴」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "恋人",
-      "亲友"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "乔迁",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "粉洋桔梗",
-    "meaning": "温柔浪漫、珍惜相遇",
-    "tags": [
-      "温柔浪漫",
-      "珍惜相遇"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉洋桔梗」选取「温柔浪漫、珍惜相遇」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "恋人",
-      "亲友"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "乔迁",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "紫洋桔梗",
-    "meaning": "优雅心意、深深思念",
-    "tags": [
-      "优雅心意",
-      "深深思念"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「紫洋桔梗」选取「优雅心意、深深思念」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
     "giftRecipients": [
       "新婚夫妇",
       "恋人",
@@ -2289,6 +1893,20 @@
     "meaningKind": "editorial",
     "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
     "description": "花语亭为「飞燕草」选取「自由心意、轻快快乐」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
+    "colorMeanings": [
+      {
+        "name": "紫飞燕草",
+        "meaning": "高傲"
+      },
+      {
+        "name": "粉飞燕草",
+        "meaning": "心意易变"
+      }
+    ],
+    "legacyIds": [
+      "flower_c0f9842e5697239fbc66b73ff0f29b6fb9106b38",
+      "flower_27331854ffb2c1c5d3c229b7f701cf31f718e603"
+    ],
     "giftRecipients": [
       "朋友",
       "花卉爱好者",
@@ -2298,60 +1916,6 @@
       "生日祝福",
       "日常问候",
       "盆栽分享"
-    ]
-  },
-  {
-    "name": "紫飞燕草",
-    "meaning": "高傲",
-    "tags": [
-      "高傲"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "historical",
-    "meaningNote": "译自 Kate Greenaway《Language of Flowers》（1884）；历史花语不代表当代各地的统一用法。",
-    "description": "1884 年的《Language of Flowers》将「Larkspur, Purple」与「高傲」联系起来。这是一种历史文化表达；今天赠送「紫飞燕草」时，也可以赋予它属于你们的含义。",
-    "nameEn": "Larkspur, Purple",
-    "meaningSource": {
-      "title": "Language of Flowers · Kate Greenaway (1884)",
-      "url": "https://www.gutenberg.org/ebooks/31591",
-      "entry": "Larkspur, Purple",
-      "original": "Haughtiness."
-    },
-    "giftRecipients": [
-      "花卉爱好者",
-      "自己"
-    ],
-    "giftOccasions": [
-      "主题花艺",
-      "园艺交流"
-    ]
-  },
-  {
-    "name": "粉飞燕草",
-    "meaning": "心意易变",
-    "tags": [
-      "心意易变"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "historical",
-    "meaningNote": "译自 Kate Greenaway《Language of Flowers》（1884）；历史花语不代表当代各地的统一用法。",
-    "description": "1884 年的《Language of Flowers》将「Larkspur, Pink」与「心意易变」联系起来。这是一种历史文化表达；今天赠送「粉飞燕草」时，也可以赋予它属于你们的含义。",
-    "nameEn": "Larkspur, Pink",
-    "meaningSource": {
-      "title": "Language of Flowers · Kate Greenaway (1884)",
-      "url": "https://www.gutenberg.org/ebooks/31591",
-      "entry": "Larkspur, Pink",
-      "original": "Fickleness."
-    },
-    "giftRecipients": [
-      "花卉爱好者",
-      "自己"
-    ],
-    "giftOccasions": [
-      "主题花艺",
-      "园艺交流"
     ]
   },
   {
@@ -2577,98 +2141,30 @@
     "meaningKind": "editorial",
     "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
     "description": "花语亭为「非洲菊」选取「积极乐观、笑对生活」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "同学",
-      "同事"
+    "colorMeanings": [
+      {
+        "name": "红非洲菊",
+        "meaning": "热烈鼓励、勇敢向前"
+      },
+      {
+        "name": "粉非洲菊",
+        "meaning": "温柔鼓励、快乐相伴"
+      },
+      {
+        "name": "黄非洲菊",
+        "meaning": "阳光心情、真诚祝福"
+      },
+      {
+        "name": "橙非洲菊",
+        "meaning": "活力、热情出发"
+      }
     ],
-    "giftOccasions": [
-      "生日",
-      "鼓励打气",
-      "毕业祝福"
-    ]
-  },
-  {
-    "name": "红非洲菊",
-    "meaning": "热烈鼓励、勇敢向前",
-    "tags": [
-      "热烈鼓励",
-      "勇敢向前"
+    "legacyIds": [
+      "flower_29ee3e9bf79608166878b47a1af4417187401beb",
+      "flower_23e1a07c6f85232a12fdcdbfd7c06571c4f360af",
+      "flower_7c38c010b88b9c67e49e2fb98abad9faf615f201",
+      "flower_69ad3dea668e8d168a09d30ad6350140be3750df"
     ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「红非洲菊」选取「热烈鼓励、勇敢向前」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "同学",
-      "同事"
-    ],
-    "giftOccasions": [
-      "生日",
-      "鼓励打气",
-      "毕业祝福"
-    ]
-  },
-  {
-    "name": "粉非洲菊",
-    "meaning": "温柔鼓励、快乐相伴",
-    "tags": [
-      "温柔鼓励",
-      "快乐相伴"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉非洲菊」选取「温柔鼓励、快乐相伴」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "同学",
-      "同事"
-    ],
-    "giftOccasions": [
-      "生日",
-      "鼓励打气",
-      "毕业祝福"
-    ]
-  },
-  {
-    "name": "黄非洲菊",
-    "meaning": "阳光心情、真诚祝福",
-    "tags": [
-      "阳光心情",
-      "真诚祝福"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「黄非洲菊」选取「阳光心情、真诚祝福」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "同学",
-      "同事"
-    ],
-    "giftOccasions": [
-      "生日",
-      "鼓励打气",
-      "毕业祝福"
-    ]
-  },
-  {
-    "name": "橙非洲菊",
-    "meaning": "活力、热情出发",
-    "tags": [
-      "活力",
-      "热情出发"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「橙非洲菊」选取「活力、热情出发」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
     "giftRecipients": [
       "朋友",
       "同学",
@@ -3330,75 +2826,25 @@
     "meaningKind": "editorial",
     "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
     "description": "花语亭为「芍药」选取「惜别、珍惜相伴」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "朋友",
-      "家人"
+    "colorMeanings": [
+      {
+        "name": "粉芍药",
+        "meaning": "温柔眷恋、甜蜜期许"
+      },
+      {
+        "name": "白芍药",
+        "meaning": "真挚心意、清雅祝福"
+      },
+      {
+        "name": "红芍药",
+        "meaning": "热烈情感、勇敢表达"
+      }
     ],
-    "giftOccasions": [
-      "婚礼",
-      "家庭团聚",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "粉芍药",
-    "meaning": "温柔眷恋、甜蜜期许",
-    "tags": [
-      "温柔眷恋",
-      "甜蜜期许"
+    "legacyIds": [
+      "flower_7970a2c6314b7f5a0d3c483c803bbe13637c2fa3",
+      "flower_39e985f947c8cec73ebf5fbad4ecc5ce281aac8e",
+      "flower_ff3976b1bbc606d30ba689ece4cab67801a4420a"
     ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉芍药」选取「温柔眷恋、甜蜜期许」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "朋友",
-      "家人"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "家庭团聚",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "白芍药",
-    "meaning": "真挚心意、清雅祝福",
-    "tags": [
-      "真挚心意",
-      "清雅祝福"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白芍药」选取「真挚心意、清雅祝福」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "新婚夫妇",
-      "朋友",
-      "家人"
-    ],
-    "giftOccasions": [
-      "婚礼",
-      "家庭团聚",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "红芍药",
-    "meaning": "热烈情感、勇敢表达",
-    "tags": [
-      "热烈情感",
-      "勇敢表达"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「红芍药」选取「热烈情感、勇敢表达」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
     "giftRecipients": [
       "新婚夫妇",
       "朋友",
@@ -3434,75 +2880,6 @@
     ]
   },
   {
-    "name": "黄牡丹",
-    "meaning": "明亮祝愿、珍贵相遇",
-    "tags": [
-      "明亮祝愿",
-      "珍贵相遇"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「黄牡丹」选取「明亮祝愿、珍贵相遇」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "长辈",
-      "新婚夫妇",
-      "喜事之人"
-    ],
-    "giftOccasions": [
-      "新春祝福",
-      "乔迁",
-      "庆祝"
-    ]
-  },
-  {
-    "name": "白牡丹",
-    "meaning": "清雅丰盈、坦荡的心",
-    "tags": [
-      "清雅丰盈",
-      "坦荡的心"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白牡丹」选取「清雅丰盈、坦荡的心」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "长辈",
-      "新婚夫妇",
-      "喜事之人"
-    ],
-    "giftOccasions": [
-      "新春祝福",
-      "乔迁",
-      "庆祝"
-    ]
-  },
-  {
-    "name": "红牡丹",
-    "meaning": "热烈祝福、丰盛喜悦",
-    "tags": [
-      "热烈祝福",
-      "丰盛喜悦"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「红牡丹」选取「热烈祝福、丰盛喜悦」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "长辈",
-      "新婚夫妇",
-      "喜事之人"
-    ],
-    "giftOccasions": [
-      "新春祝福",
-      "乔迁",
-      "庆祝"
-    ]
-  },
-  {
     "name": "腊梅",
     "meaning": "坚毅、寒冬中的希望",
     "tags": [
@@ -3514,52 +2891,6 @@
     "meaningKind": "editorial",
     "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
     "description": "花语亭为「腊梅」选取「坚毅、寒冬中的希望」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "长辈",
-      "老师",
-      "花卉爱好者"
-    ],
-    "giftOccasions": [
-      "表达敬意",
-      "生日祝福",
-      "盆栽分享"
-    ]
-  },
-  {
-    "name": "红梅",
-    "meaning": "不畏困难、坚守初心",
-    "tags": [
-      "不畏困难",
-      "坚守初心"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「红梅」选取「不畏困难、坚守初心」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "长辈",
-      "老师",
-      "花卉爱好者"
-    ],
-    "giftOccasions": [
-      "表达敬意",
-      "生日祝福",
-      "盆栽分享"
-    ]
-  },
-  {
-    "name": "白梅",
-    "meaning": "清雅自持、纯净心意",
-    "tags": [
-      "清雅自持",
-      "纯净心意"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白梅」选取「清雅自持、纯净心意」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
     "giftRecipients": [
       "长辈",
       "老师",
@@ -5720,75 +5051,25 @@
     "meaningKind": "editorial",
     "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
     "description": "花语亭为「风信子」选取「喜悦、重新出发」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
+    "colorMeanings": [
+      {
+        "name": "蓝风信子",
+        "meaning": "安静的爱、真诚陪伴"
+      },
+      {
+        "name": "粉风信子",
+        "meaning": "温柔浪漫、甜蜜心意"
+      },
+      {
+        "name": "白风信子",
+        "meaning": "纯净祝福、心境平和"
+      }
     ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "蓝风信子",
-    "meaning": "安静的爱、真诚陪伴",
-    "tags": [
-      "安静的爱",
-      "真诚陪伴"
+    "legacyIds": [
+      "flower_1ea1d47e3fbb683b63c7fb6ba6a4ae8a0f353f13",
+      "flower_1d4f5b379e25e380610623bf2a251d05650eb71f",
+      "flower_cc9d54f145a14e35498d04ae74492f92f7ebcd2f"
     ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「蓝风信子」选取「安静的爱、真诚陪伴」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
-    ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "粉风信子",
-    "meaning": "温柔浪漫、甜蜜心意",
-    "tags": [
-      "温柔浪漫",
-      "甜蜜心意"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「粉风信子」选取「温柔浪漫、甜蜜心意」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "家人"
-    ],
-    "giftOccasions": [
-      "春日祝福",
-      "生日",
-      "迎接新开始"
-    ]
-  },
-  {
-    "name": "白风信子",
-    "meaning": "纯净祝福、心境平和",
-    "tags": [
-      "纯净祝福",
-      "心境平和"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「白风信子」选取「纯净祝福、心境平和」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
     "giftRecipients": [
       "朋友",
       "恋人",
@@ -6411,72 +5692,25 @@
     "meaningKind": "editorial",
     "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
     "description": "花语亭为「睡莲」选取「宁静、清澈的心」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "水生植物爱好者",
-      "园艺爱好者"
+    "colorMeanings": [
+      {
+        "name": "蓝睡莲",
+        "meaning": "安静遐想、温柔期许"
+      },
+      {
+        "name": "红睡莲",
+        "meaning": "热情、深深的思念"
+      },
+      {
+        "name": "黄睡莲",
+        "meaning": "明亮心境、温暖希望"
+      }
     ],
-    "giftOccasions": [
-      "庭院观赏",
-      "园艺交流",
-      "盆栽分享"
-    ]
-  },
-  {
-    "name": "蓝睡莲",
-    "meaning": "安静遐想、温柔期许",
-    "tags": [
-      "安静遐想",
-      "温柔期许"
+    "legacyIds": [
+      "flower_e746ba23eb57fe433145df7fd61958a60c035a33",
+      "flower_992fec596ba7ef07365f3c5c5ccb069b9a476c19",
+      "flower_c05eda775f5cbb52e371e6da95767d388e01f978"
     ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「蓝睡莲」选取「安静遐想、温柔期许」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "水生植物爱好者",
-      "园艺爱好者"
-    ],
-    "giftOccasions": [
-      "庭院观赏",
-      "园艺交流",
-      "盆栽分享"
-    ]
-  },
-  {
-    "name": "红睡莲",
-    "meaning": "热情、深深的思念",
-    "tags": [
-      "热情",
-      "深深的思念"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「红睡莲」选取「热情、深深的思念」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "水生植物爱好者",
-      "园艺爱好者"
-    ],
-    "giftOccasions": [
-      "庭院观赏",
-      "园艺交流",
-      "盆栽分享"
-    ]
-  },
-  {
-    "name": "黄睡莲",
-    "meaning": "明亮心境、温暖希望",
-    "tags": [
-      "明亮心境",
-      "温暖希望"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「黄睡莲」选取「明亮心境、温暖希望」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
     "giftRecipients": [
       "水生植物爱好者",
       "园艺爱好者"
@@ -7423,52 +6657,6 @@
       "生日祝福",
       "日常问候",
       "盆栽分享"
-    ]
-  },
-  {
-    "name": "桔梗花（白）",
-    "meaning": "纯净心意、真诚等待",
-    "tags": [
-      "纯净心意",
-      "真诚等待"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「桔梗花（白）」选取「纯净心意、真诚等待」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "老师"
-    ],
-    "giftOccasions": [
-      "表达感谢",
-      "毕业",
-      "生日祝福"
-    ]
-  },
-  {
-    "name": "桔梗花（紫）",
-    "meaning": "深深思念、安静的爱",
-    "tags": [
-      "深深思念",
-      "安静的爱"
-    ],
-    "colors": [],
-    "imgRatio": 1,
-    "meaningKind": "editorial",
-    "meaningNote": "花语亭编辑意象解读，并非统一的传统花语。",
-    "description": "花语亭为「桔梗花（紫）」选取「深深思念、安静的爱」作为表达心意的灵感。花语会随地域、时代与赠送场景变化；送花时，写下自己的话更能传达心意。",
-    "giftRecipients": [
-      "朋友",
-      "恋人",
-      "老师"
-    ],
-    "giftOccasions": [
-      "表达感谢",
-      "毕业",
-      "生日祝福"
     ]
   }
 ]

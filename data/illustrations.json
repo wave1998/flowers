@@ -1,0 +1,626 @@
+{
+  "铃兰": {
+    "thumbnail": "/images/illustrations/lily-of-the-valley.jpg",
+    "original": "../flowers-image-backup/illustrations/lily-of-the-valley.png"
+  },
+  "玫瑰": {
+    "thumbnail": "/images/illustrations/batch-20261104-initial-00.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-initial-00.png"
+  },
+  "向日葵": {
+    "thumbnail": "/images/illustrations/batch-20261104-initial-01.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-initial-01.png"
+  },
+  "樱花": {
+    "thumbnail": "/images/illustrations/batch-20261104-initial-02.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-initial-02.png"
+  },
+  "薰衣草": {
+    "thumbnail": "/images/illustrations/batch-20261104-initial-03.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-initial-03.png"
+  },
+  "梅花": {
+    "thumbnail": "/images/illustrations/batch-20261104-initial-04.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-initial-04.png"
+  },
+  "郁金香": {
+    "thumbnail": "/images/illustrations/batch-20261104-00.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-00.png"
+  },
+  "荷花": {
+    "thumbnail": "/images/illustrations/batch-20261104-01.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-01.png"
+  },
+  "牡丹": {
+    "thumbnail": "/images/illustrations/batch-20261104-02.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-02.png"
+  },
+  "菊花": {
+    "thumbnail": "/images/illustrations/batch-20261104-03.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-03.png"
+  },
+  "百合": {
+    "thumbnail": "/images/illustrations/batch-20261104-04.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-04.png"
+  },
+  "康乃馨": {
+    "thumbnail": "/images/illustrations/batch-20261104-05.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-05.png"
+  },
+  "茉莉花": {
+    "thumbnail": "/images/illustrations/batch-20261104-06.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-06.png"
+  },
+  "桂花": {
+    "thumbnail": "/images/illustrations/batch-20261104-07.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-07.png"
+  },
+  "水仙": {
+    "thumbnail": "/images/illustrations/batch-20261104-08.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-08.png"
+  },
+  "鸢尾": {
+    "thumbnail": "/images/illustrations/batch-20261104-09.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-09.png"
+  },
+  "桔梗": {
+    "thumbnail": "/images/illustrations/batch-20261104-10.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-10.png"
+  },
+  "雏菊": {
+    "thumbnail": "/images/illustrations/batch-20261104-11.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-11.png"
+  },
+  "紫罗兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-12.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-12.png"
+  },
+  "山茶花": {
+    "thumbnail": "/images/illustrations/batch-20261104-13.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-13.png"
+  },
+  "杜鹃花": {
+    "thumbnail": "/images/illustrations/batch-20261104-14.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-14.png"
+  },
+  "海棠花": {
+    "thumbnail": "/images/illustrations/batch-20261104-15.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-15.png"
+  },
+  "栀子花": {
+    "thumbnail": "/images/illustrations/batch-20261104-16.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-16.png"
+  },
+  "勿忘我": {
+    "thumbnail": "/images/illustrations/batch-20261104-17.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-17.png"
+  },
+  "满天星": {
+    "thumbnail": "/images/illustrations/batch-20261104-18.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-18.png"
+  },
+  "蒲公英": {
+    "thumbnail": "/images/illustrations/batch-20261104-19.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-19.png"
+  },
+  "月季": {
+    "thumbnail": "/images/illustrations/batch-20261104-20.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-20.png"
+  },
+  "三色堇": {
+    "thumbnail": "/images/illustrations/batch-20261104-21.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-21.png"
+  },
+  "角堇": {
+    "thumbnail": "/images/illustrations/batch-20261104-22.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-22.png"
+  },
+  "蝴蝶兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-23.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-23.png"
+  },
+  "大花蕙兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-24.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-24.png"
+  },
+  "春兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-25.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-25.png"
+  },
+  "建兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-26.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-26.png"
+  },
+  "寒兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-27.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-27.png"
+  },
+  "墨兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-28.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-28.png"
+  },
+  "文心兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-29.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-29.png"
+  },
+  "石斛兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-30.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-30.png"
+  },
+  "卡特兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-31.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-31.png"
+  },
+  "兜兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-32.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-32.png"
+  },
+  "万代兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-33.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-33.png"
+  },
+  "风兰": {
+    "thumbnail": "/images/illustrations/batch-20261104-34.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-34.png"
+  },
+  "马蹄莲": {
+    "thumbnail": "/images/illustrations/batch-20261104-35.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-35.png"
+  },
+  "红掌": {
+    "thumbnail": "/images/illustrations/batch-20261104-36.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-36.png"
+  },
+  "白掌": {
+    "thumbnail": "/images/illustrations/batch-20261104-37.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-37.png"
+  },
+  "绣球花": {
+    "thumbnail": "/images/illustrations/batch-20261104-38.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-38.png"
+  },
+  "洋桔梗": {
+    "thumbnail": "/images/illustrations/batch-20261104-39.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-39.png"
+  },
+  "蓝星花": {
+    "thumbnail": "/images/illustrations/batch-20261104-40.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-40.png"
+  },
+  "蓝雪花": {
+    "thumbnail": "/images/illustrations/batch-20261104-41.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-41.png"
+  },
+  "飞燕草": {
+    "thumbnail": "/images/illustrations/batch-20261104-42.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-42.png"
+  },
+  "毛地黄": {
+    "thumbnail": "/images/illustrations/batch-20261104-43.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-43.png"
+  },
+  "风铃草": {
+    "thumbnail": "/images/illustrations/batch-20261104-44.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104-44.png"
+  },
+  "卷丹": {
+    "thumbnail": "/images/illustrations/batch-20261104b-000.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-000.png"
+  },
+  "山丹": {
+    "thumbnail": "/images/illustrations/batch-20261104b-001.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-001.png"
+  },
+  "木绣球": {
+    "thumbnail": "/images/illustrations/batch-20261104b-002.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-002.png"
+  },
+  "翠雀": {
+    "thumbnail": "/images/illustrations/batch-20261104b-003.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-003.png"
+  },
+  "丹麦风铃草": {
+    "thumbnail": "/images/illustrations/batch-20261104b-004.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-004.png"
+  },
+  "倒挂金钟": {
+    "thumbnail": "/images/illustrations/batch-20261104b-005.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-005.png"
+  },
+  "耧斗菜": {
+    "thumbnail": "/images/illustrations/batch-20261104b-006.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-006.png"
+  },
+  "铁线莲": {
+    "thumbnail": "/images/illustrations/batch-20261104b-007.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-007.png"
+  },
+  "金鱼草": {
+    "thumbnail": "/images/illustrations/batch-20261104b-008.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-008.png"
+  },
+  "香雪兰": {
+    "thumbnail": "/images/illustrations/batch-20261104b-009.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-009.png"
+  },
+  "非洲菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-010.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-010.png"
+  },
+  "大丽花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-011.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-011.png"
+  },
+  "百日草": {
+    "thumbnail": "/images/illustrations/batch-20261104b-012.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-012.png"
+  },
+  "波斯菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-013.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-013.png"
+  },
+  "硫华菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-014.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-014.png"
+  },
+  "金盏菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-015.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-015.png"
+  },
+  "万寿菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-016.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-016.png"
+  },
+  "孔雀草": {
+    "thumbnail": "/images/illustrations/batch-20261104b-017.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-017.png"
+  },
+  "勋章菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-018.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-018.png"
+  },
+  "松果菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-019.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-019.png"
+  },
+  "黑心金光菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-020.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-020.png"
+  },
+  "金鸡菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-021.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-021.png"
+  },
+  "天人菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-022.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-022.png"
+  },
+  "蛇目菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-023.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-023.png"
+  },
+  "瓜叶菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-024.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-024.png"
+  },
+  "玛格丽特": {
+    "thumbnail": "/images/illustrations/batch-20261104b-025.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-025.png"
+  },
+  "洋甘菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-026.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-026.png"
+  },
+  "罗马洋甘菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-027.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-027.png"
+  },
+  "矢车菊": {
+    "thumbnail": "/images/illustrations/batch-20261104b-028.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-028.png"
+  },
+  "雪轮花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-029-v2.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-029-v2.png"
+  },
+  "银莲花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-030.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-030.png"
+  },
+  "花毛茛": {
+    "thumbnail": "/images/illustrations/batch-20261104b-031.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-031.png"
+  },
+  "冰岛虞美人": {
+    "thumbnail": "/images/illustrations/batch-20261104b-032.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-032.png"
+  },
+  "虞美人": {
+    "thumbnail": "/images/illustrations/batch-20261104b-033.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-033.png"
+  },
+  "花菱草": {
+    "thumbnail": "/images/illustrations/batch-20261104b-034.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-034.png"
+  },
+  "荷包牡丹": {
+    "thumbnail": "/images/illustrations/batch-20261104b-035.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-035.png"
+  },
+  "芍药": {
+    "thumbnail": "/images/illustrations/batch-20261104b-036.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-036.png"
+  },
+  "紫斑牡丹": {
+    "thumbnail": "/images/illustrations/batch-20261104b-037.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-037.png"
+  },
+  "腊梅": {
+    "thumbnail": "/images/illustrations/batch-20261104b-038.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-038.png"
+  },
+  "桃花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-039.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-039.png"
+  },
+  "梨花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-040.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-040.png"
+  },
+  "杏花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-041.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-041.png"
+  },
+  "李花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-042.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-042.png"
+  },
+  "苹果花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-043.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-043.png"
+  },
+  "山楂花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-044.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-044.png"
+  },
+  "木瓜海棠": {
+    "thumbnail": "/images/illustrations/batch-20261104b-045.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-045.png"
+  },
+  "贴梗海棠": {
+    "thumbnail": "/images/illustrations/batch-20261104b-046.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-046.png"
+  },
+  "垂丝海棠": {
+    "thumbnail": "/images/illustrations/batch-20261104b-047.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-047.png"
+  },
+  "西府海棠": {
+    "thumbnail": "/images/illustrations/batch-20261104b-048.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-048.png"
+  },
+  "紫荆": {
+    "thumbnail": "/images/illustrations/batch-20261104b-049.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-049.png"
+  },
+  "紫薇": {
+    "thumbnail": "/images/illustrations/batch-20261104b-050.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-050.png"
+  },
+  "紫藤": {
+    "thumbnail": "/images/illustrations/batch-20261104b-051.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-051.png"
+  },
+  "凌霄": {
+    "thumbnail": "/images/illustrations/batch-20261104b-052.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-052.png"
+  },
+  "木槿": {
+    "thumbnail": "/images/illustrations/batch-20261104b-053.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-053.png"
+  },
+  "扶桑": {
+    "thumbnail": "/images/illustrations/batch-20261104b-054.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-054.png"
+  },
+  "木芙蓉": {
+    "thumbnail": "/images/illustrations/batch-20261104b-055.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-055.png"
+  },
+  "玉兰": {
+    "thumbnail": "/images/illustrations/batch-20261104b-056.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-056.png"
+  },
+  "广玉兰": {
+    "thumbnail": "/images/illustrations/batch-20261104b-057.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-057.png"
+  },
+  "含笑花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-058.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-058.png"
+  },
+  "白兰花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-059.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-059.png"
+  },
+  "黄兰": {
+    "thumbnail": "/images/illustrations/batch-20261104b-060.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-060.png"
+  },
+  "米兰花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-061.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-061.png"
+  },
+  "九里香": {
+    "thumbnail": "/images/illustrations/batch-20261104b-062.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-062.png"
+  },
+  "夜来香": {
+    "thumbnail": "/images/illustrations/batch-20261104b-063-v2.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-063-v2.png"
+  },
+  "晚香玉": {
+    "thumbnail": "/images/illustrations/batch-20261104b-064.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-064.png"
+  },
+  "金银花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-065.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-065.png"
+  },
+  "金丝桃": {
+    "thumbnail": "/images/illustrations/batch-20261104b-066.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-066.png"
+  },
+  "金丝梅": {
+    "thumbnail": "/images/illustrations/batch-20261104b-067.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-067.png"
+  },
+  "迎春花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-068.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-068.png"
+  },
+  "连翘": {
+    "thumbnail": "/images/illustrations/batch-20261104b-069.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-069.png"
+  },
+  "矮牵牛": {
+    "thumbnail": "/images/illustrations/batch-20261104b-070.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-070.png"
+  },
+  "棣棠花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-071.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-071.png"
+  },
+  "黄刺玫": {
+    "thumbnail": "/images/illustrations/batch-20261104b-072.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-072.png"
+  },
+  "蔷薇": {
+    "thumbnail": "/images/illustrations/batch-20261104b-073.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-073.png"
+  },
+  "野蔷薇": {
+    "thumbnail": "/images/illustrations/batch-20261104b-074.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-074.png"
+  },
+  "木香花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-076.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-076.png"
+  },
+  "荼蘼": {
+    "thumbnail": "/images/illustrations/batch-20261104b-077.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-077.png"
+  },
+  "三角梅": {
+    "thumbnail": "/images/illustrations/batch-20261104b-078.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-078.png"
+  },
+  "炮仗花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-079.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-079.png"
+  },
+  "使君子": {
+    "thumbnail": "/images/illustrations/batch-20261104b-080.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-080.png"
+  },
+  "龙船花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-081.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-081.png"
+  },
+  "粉团蔷薇": {
+    "thumbnail": "/images/illustrations/batch-20261104b-075.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-075.png"
+  },
+  "长春花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-082.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-082.png"
+  },
+  "长寿花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-083.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-083.png"
+  },
+  "蟹爪兰": {
+    "thumbnail": "/images/illustrations/batch-20261104b-084.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-084.png"
+  },
+  "仙客来": {
+    "thumbnail": "/images/illustrations/batch-20261104b-085.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-085.png"
+  },
+  "报春花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-086.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-086.png"
+  },
+  "四季樱草": {
+    "thumbnail": "/images/illustrations/batch-20261104b-087.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-087.png"
+  },
+  "欧洲报春": {
+    "thumbnail": "/images/illustrations/batch-20261104b-088.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-088.png"
+  },
+  "石竹": {
+    "thumbnail": "/images/illustrations/batch-20261104b-089.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-089.png"
+  },
+  "须苞石竹": {
+    "thumbnail": "/images/illustrations/batch-20261104b-090-v2.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-090-v2.png"
+  },
+  "瞿麦": {
+    "thumbnail": "/images/illustrations/batch-20261104b-091.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-091.png"
+  },
+  "美女樱": {
+    "thumbnail": "/images/illustrations/batch-20261104b-092.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-092.png"
+  },
+  "福禄考": {
+    "thumbnail": "/images/illustrations/batch-20261104b-093.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-093.png"
+  },
+  "丛生福禄考": {
+    "thumbnail": "/images/illustrations/batch-20261104b-094.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-094.png"
+  },
+  "宿根福禄考": {
+    "thumbnail": "/images/illustrations/batch-20261104b-095.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-095.png"
+  },
+  "凤仙花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-096-v2.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-096-v2.png"
+  },
+  "百万小铃": {
+    "thumbnail": "/images/illustrations/batch-20261104b-097.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-097.png"
+  },
+  "牵牛花": {
+    "thumbnail": "/images/illustrations/batch-20261104b-098.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-098.png"
+  },
+  "茑萝": {
+    "thumbnail": "/images/illustrations/batch-20261104b-099.jpg",
+    "original": "../flowers-image-backup/illustrations/batch-20261104b-099.png"
+  },
+  "旱金莲": {
+    "thumbnail": "/images/illustrations/20261104c-nasturtium.jpg",
+    "original": "../flowers-image-backup/illustrations/20261104c-nasturtium.png"
+  },
+  "葡萄风信子": {
+    "thumbnail": "/images/illustrations/20261104c-grape-hyacinth.jpg",
+    "original": "../flowers-image-backup/illustrations/20261104c-grape-hyacinth.png"
+  },
+  "雪滴花": {
+    "thumbnail": "/images/illustrations/20261104c-snowdrop.jpg",
+    "original": "../flowers-image-backup/illustrations/20261104c-snowdrop.png"
+  },
+  "鹤望兰": {
+    "thumbnail": "/images/illustrations/20261104c-bird-of-paradise.jpg",
+    "original": "../flowers-image-backup/illustrations/20261104c-bird-of-paradise.png"
+  },
+  "大花葱": {
+    "thumbnail": "/images/illustrations/20261104c-giant-allium.jpg",
+    "original": "../flowers-image-backup/illustrations/20261104c-giant-allium.png"
+  }
+}

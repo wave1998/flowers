@@ -1,8 +1,10 @@
+const { onThumbnailError } = require('../../utils/image-fallback')
 const api = require('../../utils/cloud')
 const { formatDateCN, todayKey } = require('../../utils/util')
 const { describeCloudError } = require('../../utils/cloud-error')
 
 Page({
+  onThumbnailError,
   data: {
     today: '',
     daily: null,
