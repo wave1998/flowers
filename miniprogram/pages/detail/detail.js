@@ -1,7 +1,7 @@
 const api = require('../../utils/cloud')
 const auth = require('../../utils/auth')
 Page({
-  data: { flower: null, faved: false, favBusy: false, loading: true, error: '', imageLoaded: false, imageFailed: false, previewSrc: '' },
+  data: { flower: null, faved: false, favBusy: false, loading: true, error: '', imageLoaded: false, imageFailed: false, previewSrc: '', previewPreparing: false, savingImage: false },
   onLoad(options) {
     this._id = options.id
     const cached = api.getCachedFlowerById(this._id)
@@ -26,7 +26,7 @@ Page({
     }
     this.refreshFavorite()
   },
-  onUnload() { this._destroyed = true; clearTimeout(this._timer); clearTimeout(this._imageTimer) },
+  onUnload() { this._destroyed = true; this._previewGeneration = (this._previewGeneration || 0) + 1; clearTimeout(this._timer); clearTimeout(this._imageTimer) },
   showFlower(raw) {
     if (this._destroyed) return
     const previous = this.data.flower
@@ -94,14 +94,92 @@ Page({
   previewImage() {
     const flower = this.data.flower
     if (!flower || flower.imagePlaceholder) return
-    const original = flower.originalImage || (this.data.imageFailed ? flower.thumbnail : flower.image) || flower.thumbnail
-    if (!original) { wx.showToast({ title: '图片暂不可预览', icon: 'none' }); return }
-    // 代码包图片在部分微信环境中不能直接交给系统预览，使用 image 组件展示。
-    if (original.startsWith('/')) { this.setData({ previewSrc: original }); return }
-    wx.previewImage({ current: original, urls: [original], showmenu: true,
-      fail: () => { if (!this._destroyed) this.setData({ previewSrc: flower.thumbnail || flower.image }) } })
+    this._previewCandidates = [...new Set([flower.originalImage, flower.image, flower.thumbnail].filter(Boolean))]
+    this._previewIndex = 0
+    if (!this._previewCandidates.length) { wx.showToast({ title: '图片暂不可预览', icon: 'none' }); return }
+    const generation = this._previewGeneration = (this._previewGeneration || 0) + 1
+    this.setData({ previewSrc: '/images/flower-loading.png', previewPreparing: true })
+    return this.preparePreview(generation)
   },
-  closePreview() { this.setData({ previewSrc: '' }) },
+  getPreviewImageInfo(src) {
+    if (!this._previewCache) this._previewCache = new Map()
+    if (this._previewCache.has(src)) return this._previewCache.get(src)
+    const request = Promise.resolve().then(async () => {
+      const local = src.startsWith('cloud://') ? (await wx.cloud.downloadFile({ fileID: src })).tempFilePath : src
+      return new Promise((resolve, reject) => wx.getImageInfo({ src: local, success: resolve, fail: reject }))
+    }).catch(error => { this._previewCache.delete(src); throw error })
+    this._previewCache.set(src, request)
+    return request
+  },
+  async preparePreview(generation) {
+    const src = this._previewCandidates[this._previewIndex]
+    try {
+      const info = await this.getPreviewImageInfo(src)
+      if (this._destroyed || generation !== this._previewGeneration) return
+      this._previewSource = src
+      this.setData({ previewSrc: info.path, previewPreparing: false })
+    } catch (_) {
+      if (!this._destroyed && generation === this._previewGeneration) return this.onPreviewError()
+    }
+  },
+  onPreviewError() {
+    const next = ++this._previewIndex
+    if (this._previewSource && this._previewCache) this._previewCache.delete(this._previewSource)
+    if (this._previewCandidates && next < this._previewCandidates.length) {
+      this.setData({ previewPreparing: true })
+      return this.preparePreview(this._previewGeneration)
+    }
+    else { this.closePreview(); wx.showToast({ title: '图片暂不可预览', icon: 'none' }) }
+  },
+  closePreview() { this._previewGeneration = (this._previewGeneration || 0) + 1; this._previewCandidates = []; this._previewSource = ''; this.setData({ previewSrc: '', previewPreparing: false }) },
+  async saveWatermarkedImage() {
+    if (this.data.savingImage || this.data.previewPreparing || !this.data.previewSrc) return
+    const src = this._previewSource || this.data.previewSrc
+    this.setData({ savingImage: true })
+    try {
+      const info = await this.getPreviewImageInfo(src)
+      const scale = Math.min(1, 2048 / Math.max(info.width, info.height))
+      const width = Math.max(1, Math.round(info.width * scale))
+      const height = Math.max(1, Math.round(info.height * scale))
+      const canvas = await new Promise((resolve, reject) => {
+        wx.createSelectorQuery().in(this).select('#watermarkCanvas').fields({ node: true }).exec(result => {
+          if (result && result[0] && result[0].node) resolve(result[0].node)
+          else reject(new Error('画布尚未准备好'))
+        })
+      })
+      canvas.width = width
+      canvas.height = height
+      const context = canvas.getContext('2d')
+      const image = await new Promise((resolve, reject) => {
+        const image = canvas.createImage()
+        image.onload = () => resolve(image)
+        image.onerror = reject
+        image.src = info.path
+      })
+      context.drawImage(image, 0, 0, width, height)
+      // 预览按屏幕宽度展示时约 12px，导出时按图片尺寸等比绘制。
+      const windowWidth = wx.getWindowInfo ? wx.getWindowInfo().windowWidth : wx.getSystemInfoSync().windowWidth
+      const fontSize = Math.max(12, Math.round(width * 12 / (windowWidth || 375)))
+      const margin = Math.max(10, Math.round(fontSize * 0.8))
+      context.font = `${fontSize}px sans-serif`
+      context.textAlign = 'right'
+      context.textBaseline = 'bottom'
+      context.fillStyle = '#ffffff'
+      context.shadowOffsetY = 1
+      context.shadowBlur = Math.max(2, fontSize / 5)
+      context.shadowColor = 'rgba(0, 0, 0, 0.8)'
+      context.fillText('花语亭', width - margin, height - margin)
+      await new Promise(resolve => canvas.requestAnimationFrame(resolve))
+      const result = await new Promise((resolve, reject) => wx.canvasToTempFilePath({ canvas, width, height, destWidth: width, destHeight: height, fileType: 'png', success: resolve, fail: reject }, this))
+      await new Promise((resolve, reject) => wx.saveImageToPhotosAlbum({ filePath: result.tempFilePath, success: resolve, fail: reject }))
+      wx.showToast({ title: '已保存到相册', icon: 'success' })
+    } catch (error) {
+      if (this._previewCache) this._previewCache.delete(src)
+      if (/auth deny|auth denied|authorize|permission/i.test(error.errMsg || '')) {
+        wx.showModal({ title: '需要相册权限', content: '允许保存到相册后，即可下载带水印的图片。', confirmText: '去设置', success: result => { if (result.confirm) wx.openSetting() } })
+      } else wx.showToast({ title: '保存失败，请重试', icon: 'none' })
+    } finally { if (!this._destroyed) this.setData({ savingImage: false }) }
+  },
   copyImageSource() {
     const source = this.data.flower && this.data.flower.imageMeta && this.data.flower.imageMeta.sourceUrl
     if (source) wx.setClipboardData({ data: source })

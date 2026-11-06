@@ -1,7 +1,7 @@
 <view class="page" wx:if="{{flower}}">
   <view class="hero">
     <image class="hero-img hero-preview" src="{{flower.thumbnail || '/images/flower-placeholder.png'}}" mode="widthFix" bindtap="previewImage" binderror="onThumbnailError" />
-    <image wx:if="{{!flower.imagePlaceholder && !imageFailed}}" class="hero-img hero-hd {{imageLoaded ? 'is-loaded' : ''}}" src="{{flower.image}}" mode="aspectFit" bindload="onImageLoad" binderror="onImageError" bindtap="previewImage" show-menu-by-longpress />
+    <image wx:if="{{!flower.imagePlaceholder && !imageFailed}}" class="hero-img hero-hd {{imageLoaded ? 'is-loaded' : ''}}" src="{{flower.image}}" mode="aspectFit" bindload="onImageLoad" binderror="onImageError" bindtap="previewImage" />
     <view class="hero-status" wx:if="{{flower.imagePlaceholder}}">花卉插画 · 实拍待补充</view>
     <view class="hero-status" wx:elif="{{imageFailed}}" bindtap="retryImage">已显示缩略图 · 点击重试高清图</view>
     <view class="hero-status" wx:elif="{{!imageLoaded}}"><image class="petal-spin" src="/images/flower-loading.png" /> 高清图正在绽放</view>
@@ -95,10 +95,13 @@
     </view>
     <view class="safe-bottom"></view>
   </view>
-  <view wx:if="{{previewSrc}}" class="image-preview" bindtap="closePreview" role="button" aria-label="关闭图片预览">
-    <image class="image-preview-content" src="{{previewSrc}}" mode="aspectFit" show-menu-by-longpress />
-    <view class="image-preview-close">关闭</view>
+  <view wx:if="{{previewSrc}}" class="image-preview">
+    <image wx:if="{{!previewPreparing}}" class="image-preview-content" src="{{previewSrc}}" mode="aspectFit" bindtap="closePreview" binderror="onPreviewError" />
+    <view wx:else class="image-preview-loading"><image class="petal-spin" src="/images/flower-loading.png" />正在准备图片</view>
+    <button class="image-preview-close" bindtap="closePreview" aria-label="关闭图片预览">×</button>
+    <view class="image-preview-actions"><button class="image-preview-save" bindtap="saveWatermarkedImage" loading="{{savingImage}}" disabled="{{savingImage || previewPreparing}}">↓  保存图片</button></view>
   </view>
+  <canvas type="2d" id="watermarkCanvas" class="watermark-canvas"></canvas>
 </view>
 
 <view class="detail-skeleton" wx:elif="{{loading}}" aria-label="正在加载花卉详情">

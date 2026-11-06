@@ -162,3 +162,7 @@ flowers/
 ### 插画云接入与本地备份（2026-11-05）
 
 插画目录使用 `data/illustration-cloud-prefix.txt` 指向云存储；原图及旧缩略图移至同级 `flowers-image-backup/`。小程序上传排除 `images/illustrations/` 和 `images/thumbs/`，仅保留通用占位与界面图标。运行构建脚本需要保留该同级备份。云图加载失败时显示通用占位图。云端详情图和原图的完整性、客户端读取权限尚需在合适时确认。云函数 `initDatabase/images/` 的历史照片是独立云函数资源，不属于小程序代码包。
+
+### 花卉基础资料
+
+扩展花卉的科属、花期、原产地、花色、植物介绍和养护建议维护在 `data/flower-details.tsv`；原有详细条目仍由种子数据提供。修改后运行 `python3 scripts/build_catalog.py` 生成小程序目录和云函数种子，脚本会检查七项必填信息。花期为常见栽培时段，实际随品种、地区和设施栽培而变化；宽泛的园艺名称按类群说明，不强行对应单一物种。花语继续区分常见文化寓意、历史译文和编辑意象。植物名及范围可参考 [中国植物志](https://www.iplant.cn/foc/AboutFoc) 与 [Kew Plants of the World Online](https://powo.science.kew.org/)，具体品种的栽培还应结合当地环境。

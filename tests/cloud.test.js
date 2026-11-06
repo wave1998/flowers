@@ -359,6 +359,9 @@ test('catalog contains at least 200 distinct entries and complete classification
   assert.equal(new Set(catalog.flowers.map(f => f._id)).size, catalog.count)
   for (const f of catalog.flowers) {
     assert.ok(f.name && f.meaning && f.description && f.meaningKind && f.meaningNote, f.name)
+    for (const field of ['family', 'bloomSeason', 'origin', 'care']) assert.ok(typeof f[field] === 'string' && f[field].trim(), `${f.name}: ${field}`)
+    assert.ok(Array.isArray(f.colors) && f.colors.length > 0 && f.colors.every(Boolean), `${f.name}: colors`)
+    assert.ok(!f.description.startsWith('花语亭为「'), `${f.name}: 缺少植物介绍`)
     assert.ok(f.thumbnail.startsWith('cloud://') || fs.existsSync(path.join(root, 'miniprogram', f.thumbnail)), f.name)
     if (f.fallbackThumbnail) assert.ok(fs.existsSync(path.join(root, 'miniprogram', f.fallbackThumbnail)), f.name)
     if (f.meaningKind === 'historical') assert.ok(f.meaningSource.url && f.meaningSource.original)
@@ -441,27 +444,80 @@ test('detail displays cached text before cloud refresh settles', async () => {
   await Promise.resolve(); page.onUnload()
 })
 
-test('detail previews the original when available and otherwise the displayed thumbnail', () => {
-  let page, preview, toast
+test('detail uses the in-page preview and falls back when the original is unavailable', async () => {
+  let page, toast
   loadModule('miniprogram/pages/detail/detail.js', { '../../utils/cloud': {}, '../../utils/auth': {} }, {
     Page: value => { page = value },
-    wx: { previewImage: options => { preview = options }, showToast: options => { toast = options } }
+    wx: { cloud: { downloadFile: async () => { throw new Error('missing original') } }, getImageInfo: ({ src, success }) => success({ path: src }), showToast: options => { toast = options } }
   })
   page.setData = patch => Object.assign(page.data, patch)
   page.data = { flower: { imageKind: 'ai-illustration', image: '/thumb.jpg', originalImage: 'cloud://env/original.png' } }
-  page.previewImage()
-  assert.equal(preview.urls[0], 'cloud://env/original.png')
-  assert.equal(preview.showmenu, true)
-  preview.fail()
+  await page.previewImage()
   assert.equal(page.data.previewSrc, '/thumb.jpg')
   page.closePreview()
   assert.equal(page.data.previewSrc, '')
-  preview = undefined
   page.data.flower.originalImage = undefined
-  page.previewImage()
-  assert.equal(preview, undefined)
+  await page.previewImage()
   assert.equal(page.data.previewSrc, '/thumb.jpg')
   assert.equal(toast, undefined)
+})
+
+function mockCanvas(context, loadImage = image => Promise.resolve().then(() => image.onload())) {
+  const canvas = { getContext: () => context, requestAnimationFrame: done => done(), createImage() {
+    return { set src(value) { this.path = value; loadImage(this) } }
+  } }
+  return { canvas, createSelectorQuery() {
+    const query = { in: () => query, select: () => query, fields: () => query, exec: done => done([{ node: canvas }]) }
+    return query
+  } }
+}
+
+test('preview and save share the same in-flight cloud download and cached image', async () => {
+  let page, downloadCount = 0, completeDownload, saved
+  const context = { drawImage() {}, fillText() {} }
+  const canvas = mockCanvas(context)
+  const wx = { cloud: { downloadFile: () => { downloadCount++; return new Promise(resolve => { completeDownload = resolve }) } },
+    getImageInfo: ({ success }) => success({ path: '/tmp/source.png', width: 1200, height: 1200 }),
+    getWindowInfo: () => ({ windowWidth: 375 }), createSelectorQuery: canvas.createSelectorQuery,
+    canvasToTempFilePath: ({ success }) => success({ tempFilePath: '/tmp/watermarked.png' }),
+    saveImageToPhotosAlbum: ({ filePath, success }) => { saved = filePath; success() }, showToast() {} }
+  loadModule('miniprogram/pages/detail/detail.js', { '../../utils/cloud': {}, '../../utils/auth': {} }, { Page: value => { page = value }, wx })
+  page.data = { flower: { originalImage: 'cloud://env/original.png' }, savingImage: false }
+  page.setData = (patch, done) => { Object.assign(page.data, patch); if (done) done() }
+  const preparing = page.previewImage()
+  await Promise.resolve()
+  const sameRequest = page.getPreviewImageInfo('cloud://env/original.png')
+  assert.equal(downloadCount, 1)
+  completeDownload({ tempFilePath: '/tmp/source.png' })
+  await Promise.all([preparing, sameRequest])
+  assert.equal(page.data.previewSrc, '/tmp/source.png')
+  await page.saveWatermarkedImage()
+  assert.equal(downloadCount, 1)
+  assert.equal(saved, '/tmp/watermarked.png')
+})
+
+test('saving an illustration draws the watermark before saving the exported image', async () => {
+  let page, saved, drawnText, imageToLoad, drawnImage, exported = false
+  const context = { drawImage: image => { drawnImage = image }, fillText: text => { drawnText = text } }
+  const canvas = mockCanvas(context, image => { imageToLoad = image })
+  const wx = { cloud: { downloadFile: async () => ({ tempFilePath: '/tmp/source.png' }) },
+    getImageInfo: ({ success }) => success({ path: '/tmp/source.png', width: 1254, height: 1254 }),
+    getWindowInfo: () => ({ windowWidth: 375 }), createSelectorQuery: canvas.createSelectorQuery,
+    canvasToTempFilePath: ({ canvas: exportedCanvas, success }) => { assert.equal(exportedCanvas, canvas.canvas); exported = true; success({ tempFilePath: '/tmp/watermarked.png' }) },
+    saveImageToPhotosAlbum: ({ filePath, success }) => { saved = filePath; success() }, showToast() {} }
+  loadModule('miniprogram/pages/detail/detail.js', { '../../utils/cloud': {}, '../../utils/auth': {} }, { Page: value => { page = value }, wx })
+  page.data = { previewSrc: 'cloud://env/original.png', savingImage: false }
+  page.setData = (patch, done) => { Object.assign(page.data, patch); if (done) done() }
+  const saving = page.saveWatermarkedImage()
+  while (!imageToLoad) await Promise.resolve()
+  assert.equal(exported, false)
+  assert.equal(saved, undefined)
+  imageToLoad.onload()
+  await saving
+  assert.equal(drawnImage, imageToLoad)
+  assert.equal(drawnText, '花语亭')
+  assert.equal(saved, '/tmp/watermarked.png')
+  assert.equal(page.data.savingImage, false)
 })
 
 test('a stale cloud placeholder cannot hide a local illustration', async () => {

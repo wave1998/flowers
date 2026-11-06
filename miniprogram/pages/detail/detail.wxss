@@ -171,6 +171,12 @@
 .hero-preview { position: relative; inset: auto; width: 100%; height: auto; }
 .hero-hd { position: absolute; inset: 0; width: 100%; height: 100%; }
 .skeleton-hero { height: 750rpx; }
-.image-preview { position: fixed; inset: 0; z-index: 1000; background: rgba(20, 17, 16, .96); display: flex; align-items: center; justify-content: center; }
-.image-preview-content { width: 100%; height: 100%; }
-.image-preview-close { position: absolute; right: 32rpx; top: calc(env(safe-area-inset-top) + 24rpx); color: white; background: rgba(0, 0, 0, .45); border-radius: 32rpx; padding: 12rpx 24rpx; font-size: 26rpx; }
+.image-preview { position: fixed; inset: 0; z-index: 1000; background: #191614; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: calc(env(safe-area-inset-top) + 90rpx) 0 calc(env(safe-area-inset-bottom) + 180rpx); box-sizing: border-box; }
+.image-preview-content { width: 100%; flex: 1; min-height: 0; }
+.image-preview-loading { display: flex; flex: 1; align-items: center; justify-content: center; color: rgba(255,255,255,.7); font-size: 26rpx; }
+.image-preview-close { position: absolute; left: auto; right: 32rpx; top: calc(env(safe-area-inset-top) + 20rpx); display: flex; align-items: center; justify-content: center; width: 68rpx; min-width: 0; max-width: 68rpx; height: 68rpx; margin: 0; padding: 0; box-sizing: border-box; line-height: 1; color: #fff; background: rgba(255,255,255,.14); border-radius: 50%; font-size: 48rpx; font-weight: 300; }
+.image-preview-close::after, .image-preview-save::after { border: 0; }
+.image-preview-actions { position: absolute; bottom: calc(env(safe-area-inset-bottom) + 32rpx); left: 0; width: 100%; text-align: center; }
+.image-preview-save { display: flex; align-items: center; justify-content: center; width: 320rpx; height: 84rpx; padding: 0; box-sizing: border-box; line-height: 1; border-radius: 48rpx; background: #e67d8d; color: #fff; font-size: 29rpx; font-weight: 600; box-shadow: 0 8rpx 26rpx rgba(0,0,0,.25); }
+.image-preview-save[disabled] { opacity: .65; color: #fff; background: #e67d8d; }
+.watermark-canvas { position: fixed; left: -10000px; top: 0; width: 1px; height: 1px; pointer-events: none; }

@@ -63,6 +63,28 @@ for parent, variants in merged.items():
 # Rebuild public entries above after merging on subsequent section.
 assert len(seed)>=200 and len({r['name'] for r in seed})==len(seed)
 
+# Independently maintained botanical facts survive regeneration of the catalog.
+details = {}
+for number, line in enumerate((ROOT / 'data/flower-details.tsv').read_text().splitlines(), 1):
+    if not line.strip():
+        continue
+    fields = line.split('|')
+    if len(fields) != 7 or not all(fields):
+        raise ValueError(f'flower-details.tsv 第 {number} 行应包含花名及六项资料')
+    name, family, season, origin, colors, description, care = fields
+    if name in details:
+        raise ValueError(f'flower-details.tsv 中花名重复：{name}')
+    details[name] = dict(family=family, bloomSeason=season, origin=origin,
+                         colors=colors.split('、'), description=description, care=care)
+unknown = set(details) - {row['name'] for row in seed}
+if unknown:
+    raise ValueError(f'花卉资料不在目录中：{sorted(unknown)}')
+for row in seed:
+    row.update(details.get(row['name'], {}))
+    missing = [field for field in ('family', 'bloomSeason', 'origin', 'colors', 'meaning', 'description', 'care') if not row.get(field)]
+    if missing:
+        raise ValueError(f"{row['name']} 缺少必填资料：{', '.join(missing)}")
+
 manifest = json.loads((ROOT / 'cloudfunctions/initDatabase/images/manifest.json').read_text())
 illustrations = json.loads((ROOT / 'data/illustrations.json').read_text())
 pending_illustrations = json.loads((ROOT / 'data/illustration-pending.json').read_text())
