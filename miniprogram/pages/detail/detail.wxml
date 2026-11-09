@@ -1,6 +1,7 @@
 <view class="page" wx:if="{{flower}}">
   <view class="hero">
-    <image class="hero-img hero-preview" src="{{flower.thumbnail || '/images/flower-placeholder.png'}}" mode="widthFix" bindtap="previewImage" binderror="onThumbnailError" />
+    <view wx:if="{{!thumbnailLoaded && !imageLoaded}}" class="hero-loading" aria-label="图片加载中"><image class="hero-loading-flower petal-spin" src="/images/flower-loading.png" /><text>花儿正在绽放</text></view>
+    <image class="hero-img hero-preview {{thumbnailLoaded ? 'is-loaded' : ''}}" src="{{flower.thumbnail || '/images/flower-placeholder.png'}}" data-src="{{flower.thumbnail || '/images/flower-placeholder.png'}}" mode="aspectFit" bindtap="previewImage" bindload="onThumbnailLoad" binderror="onThumbnailError" />
     <image wx:if="{{!flower.imagePlaceholder && !imageFailed}}" class="hero-img hero-hd {{imageLoaded ? 'is-loaded' : ''}}" src="{{flower.image}}" mode="aspectFit" bindload="onImageLoad" binderror="onImageError" bindtap="previewImage" />
     <view class="hero-status" wx:if="{{flower.imagePlaceholder}}">花卉插画 · 实拍待补充</view>
     <view class="hero-status" wx:elif="{{imageFailed}}" bindtap="retryImage">已显示缩略图 · 点击重试高清图</view>

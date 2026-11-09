@@ -115,6 +115,7 @@
   width: 100%;
   height: 460rpx;
   display: block;
+  background: linear-gradient(135deg, #f1e8e2, #faf3ed);
 }
 .daily-overlay {
   position: absolute;
@@ -212,6 +213,7 @@
   width: 100%;
   height: 220rpx;
   display: block;
+  background: linear-gradient(135deg, #f1e8e2, #faf3ed);
 }
 .hot-name {
   padding: 16rpx 20rpx 0;

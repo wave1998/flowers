@@ -58,7 +58,7 @@
 .f-img {
   width: 100%;
   display: block;
-  background: #f0ebe4;
+  background: linear-gradient(135deg, #f1e8e2, #faf3ed);
 }
 .f-body {
   padding: 16rpx 20rpx 20rpx;

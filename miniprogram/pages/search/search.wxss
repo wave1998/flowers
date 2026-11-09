@@ -90,7 +90,7 @@
   height: 140rpx;
   border-radius: 14rpx;
   flex-shrink: 0;
-  background: #f0ebe4;
+  background: linear-gradient(135deg, #f1e8e2, #faf3ed);
 }
 .result-info {
   flex: 1;

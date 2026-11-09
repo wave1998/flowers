@@ -1,7 +1,7 @@
 const api = require('../../utils/cloud')
 const auth = require('../../utils/auth')
 Page({
-  data: { flower: null, faved: false, favBusy: false, loading: true, error: '', imageLoaded: false, imageFailed: false, previewSrc: '', previewPreparing: false, savingImage: false },
+  data: { flower: null, faved: false, favBusy: false, loading: true, error: '', thumbnailLoaded: false, imageLoaded: false, imageFailed: false, previewSrc: '', previewPreparing: false, savingImage: false },
   onLoad(options) {
     this._id = options.id
     const cached = api.getCachedFlowerById(this._id)
@@ -35,6 +35,7 @@ Page({
       giftOccasionsText: (raw.giftOccasions || []).join('、'),
       paragraphs: (raw.description || '').split('\n').map(s => s.trim()).filter(Boolean) }
     const patch = { flower, loading: false, error: '' }
+    if (!previous || previous.thumbnail !== flower.thumbnail) patch.thumbnailLoaded = false
     if (!previous || previous.image !== flower.image) Object.assign(patch, { imageLoaded: false, imageFailed: false })
     this.setData(patch)
     if ((!previous || previous.image !== flower.image) && !flower.imagePlaceholder) {
@@ -85,8 +86,13 @@ Page({
   },
   onImageLoad() { clearTimeout(this._imageTimer); this.setData({ imageLoaded: true, imageFailed: false }) },
   onImageError() { clearTimeout(this._imageTimer); this.setData({ imageFailed: true }) },
-  onThumbnailError() {
+  onThumbnailLoad(e) {
     const flower = this.data.flower
+    if (flower && e.currentTarget.dataset.src === (flower.thumbnail || '/images/flower-placeholder.png')) this.setData({ thumbnailLoaded: true })
+  },
+  onThumbnailError(e) {
+    const flower = this.data.flower
+    if (e && e.currentTarget.dataset.src !== (flower && (flower.thumbnail || '/images/flower-placeholder.png'))) return
     const fallback = flower && flower.fallbackThumbnail || '/images/flower-placeholder.png'
     if (flower && flower.thumbnail !== fallback) this.setData({ 'flower.thumbnail': fallback })
   },
